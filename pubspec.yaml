@@ -11,7 +11,7 @@ dependencies:
   solidart: ^1.5.4
   signals_core: ^6.0.2
   preact_signals: ^1.8.3
-  state_beacon: ^0.8.0
+  state_beacon_core: ^1.0.0
 
 dev_dependencies:
   lints: ^5.0.0

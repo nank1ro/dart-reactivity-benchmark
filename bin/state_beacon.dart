@@ -1,5 +1,5 @@
 import 'package:dart_reactivity_benchmark/run_framework_bench.dart';
-import 'package:state_beacon/state_beacon.dart' as state_beacon;
+import 'package:state_beacon_core/state_beacon_core.dart' as state_beacon;
 import 'package:dart_reactivity_benchmark/reactive_framework.dart';
 import 'package:dart_reactivity_benchmark/utils/create_computed.dart';
 import 'package:dart_reactivity_benchmark/utils/create_signal.dart';
@@ -15,7 +15,7 @@ final class _StateBeaconReactiveFramework extends ReactiveFramework {
 
   @override
   void effect(void Function() fn) {
-    state_beacon.Beacon.createEffect(() => fn());
+    state_beacon.Beacon.effect(() => fn());
   }
 
   @override
