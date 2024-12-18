@@ -37,5 +37,6 @@ final class _SignalsReactiveFramework extends ReactiveFramework {
 }
 
 void main() {
+  signals_core.SignalsObserver.instance = null;
   runFrameworkBench(const _SignalsReactiveFramework(), testPullCounts: true);
 }
