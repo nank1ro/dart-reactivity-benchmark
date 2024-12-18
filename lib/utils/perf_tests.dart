@@ -7,7 +7,7 @@ class TestResult {
     required this.count,
   });
 
-  final double sum;
+  final num sum;
   final int count;
 }
 

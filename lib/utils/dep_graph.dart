@@ -36,7 +36,7 @@ Graph makeGraph(
   });
 }
 
-int runGraph(Graph graph, int iterations, int readFraction,
+int runGraph(Graph graph, int iterations, double readFraction,
     ReactiveFramework framework) {
   final random = Random(0);
   final Graph(:sources, :layers) = graph;
@@ -96,11 +96,11 @@ Iterable<Computed<int>> _makeRow(
     ReactiveFramework framework,
     int layer,
     Random random) {
-  return sources.indexed.map((e) {
+  return Iterable.generate(sources.length, (dex) {
     final innerSources = <ISignal<int>>[];
     for (int i = 0; i < nSources; i++) {
       innerSources.add(sources.elementAt(
-        (i + e.$1) % sources.length,
+        (i + dex) % sources.length,
       ));
     }
 
@@ -123,7 +123,7 @@ Iterable<Computed<int>> _makeRow(
       counter.count++;
       int sum = first.read();
       final shouldDrop = sum & 0x1;
-      final dropDex = sum & tail.length;
+      final dropDex = sum % tail.length;
 
       for (final (i, s) in tail.indexed) {
         if (shouldDrop != 0 && i == dropDex) {
