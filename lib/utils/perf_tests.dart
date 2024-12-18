@@ -1,5 +1,4 @@
 import '../framework_type.dart';
-import 'logger.dart';
 
 class TestResult {
   const TestResult({
@@ -30,14 +29,15 @@ void verifyBenchResult(FrameworkInfo info, TestConfig config,
   final TimingResult<TestResult>(:result) = timingResult;
 
   if (expected.sum != 0 && expected.sum != result.sum) {
-    logger.e('sum ${framework.name} ${config.name} result: ${expected.sum}');
+    print(
+        '\x1B[31msum ${framework.name} ${config.name} result:${result.sum} expected:${expected.sum}\x1B[0m');
   }
 
   if (expected.count != 0 &&
       (config.readFraction == 1 || testPullCounts == true) &&
       testPullCounts != false &&
       expected.count != result.count) {
-    logger
-        .e('count ${framework.name} ${config.name} result: ${expected.count}');
+    print(
+        '\x1B[31mcount ${framework.name} ${config.name} result:${result.count} expected:${expected.count}\x1B[0m');
   }
 }

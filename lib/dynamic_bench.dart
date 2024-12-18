@@ -2,7 +2,6 @@ import 'config.dart';
 import 'framework_type.dart';
 import 'utils/bench_repeat.dart';
 import 'utils/dep_graph.dart';
-import 'utils/logger.dart';
 import 'utils/perf_logging.dart';
 import 'utils/perf_tests.dart';
 
@@ -16,7 +15,8 @@ Future<void> dynamicBench(FrameworkInfo info, {int testRepeats = 1}) async {
         final graph = makeGraph(framework, config, counter);
         return runGraph(graph, iterations, readFraction, framework);
       } catch (e) {
-        logger.f('Error dynamicBench: ${framework.name}', error: e);
+        print(
+            '\x1B[41m\x1B[37mError dynamicBench: ${framework.name}: $e\x1B[0m');
         return -1;
       }
     }

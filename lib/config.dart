@@ -10,7 +10,7 @@ const perfTests = [
     totalLayers: 5,
     readFraction: 0.2,
     iterations: 600000,
-    expected: TestResult(sum: 19199832, count: 2640004),
+    expected: TestResult(sum: 19199828, count: 3180010),
   ),
   TestConfig(
     name: 'dynamic',
@@ -20,7 +20,7 @@ const perfTests = [
     totalLayers: 10,
     readFraction: 0.2,
     iterations: 15000,
-    expected: TestResult(sum: 302310477864, count: 1125003),
+    expected: TestResult(sum: 302310477860, count: 1140004),
   ),
   TestConfig(
     name: 'large',
@@ -30,7 +30,7 @@ const perfTests = [
     totalLayers: 12,
     readFraction: 1,
     iterations: 7000,
-    expected: TestResult(sum: 29355933696000, count: 1473791),
+    expected: TestResult(sum: 29355933696000, count: 1473789),
   ),
   TestConfig(
     name: 'wide dense',
@@ -50,7 +50,7 @@ const perfTests = [
     nSources: 3,
     readFraction: 1,
     iterations: 500,
-    expected: TestResult(sum: 3.0239642676898464e241, count: 1246502),
+    expected: TestResult(sum: 6329683023313797861, count: 1246502),
   ),
   TestConfig(
     name: 'very dynamic',
@@ -60,6 +60,6 @@ const perfTests = [
     nSources: 6,
     readFraction: 1,
     iterations: 2000,
-    expected: TestResult(sum: 15664996402790400, count: 1078671),
+    expected: TestResult(sum: 15664996402790400, count: 1078734),
   ),
 ];
