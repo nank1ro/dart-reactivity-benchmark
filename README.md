@@ -1,6 +1,6 @@
 # Dart Reactivity Benchmark
 
-A comprehensive benchmark suite for comparing different reactive frameworks in Dart.
+Benchmark comparing different standalone Dart reactivity/signals frameworks.
 
 ## Frameworks Tested
 - alien_signals
@@ -139,7 +139,6 @@ A comprehensive benchmark suite for comparing different reactive frameworks in D
 
 ## Notes
 - Performance numbers are in microseconds (μs)
-- Tests run on MacBook Pro [specify machine details]
 - Results may vary based on specific use cases and environments
 
 ## Usage

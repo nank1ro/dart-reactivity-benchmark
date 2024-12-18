@@ -1,5 +1,5 @@
 name: dart_reactivity_benchmark
-description: A sample command-line application.
+description: Benchmark comparing different standalone Dart reactivity/signals frameworks.
 version: 1.0.0
 publish_to: none
 
