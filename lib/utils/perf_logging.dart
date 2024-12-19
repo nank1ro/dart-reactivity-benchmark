@@ -24,8 +24,8 @@ String _percent(num n) {
 PerfRowStrings _trimColumns(PerfRowStrings row) {
   String trimmed(String value, int length) {
     return value
-        .substring(0, length >= value.length ? value.length : length)
-        .padRight(length);
+        .trim()
+        .substring(0, length >= value.length ? value.length : length);
   }
 
   return PerfRowStrings(
@@ -35,21 +35,21 @@ PerfRowStrings _trimColumns(PerfRowStrings row) {
   );
 }
 
-bool printPerfResultLog = true;
 void logPerfResult(PerfRowStrings row) {
-  if (!printPerfResultLog) return;
-
   final trimmed = _trimColumns(row);
-  final colums = [trimmed.framework, trimmed.test, trimmed.time];
-
-  print(colums.join(' , '));
+  print('| ${trimmed.framework} | ${trimmed.test} | ${trimmed.time} |');
 }
 
-PerfRowStrings perfReportHeaders() {
-  return _trimColumns(PerfRowStrings(
-    framework: 'framework',
-    test: 'test',
-    time: 'time (μs)',
+void printPerfReportHeaders() {
+  logPerfResult(PerfRowStrings(
+    framework: 'Framework',
+    test: 'Test Case',
+    time: 'Time (μs)',
+  ));
+  logPerfResult(PerfRowStrings(
+    framework: '---',
+    test: '---',
+    time: '---',
   ));
 }
 

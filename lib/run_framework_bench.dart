@@ -12,7 +12,7 @@ Future<void> runFrameworkBench(ReactiveFramework framework,
   final info =
       FrameworkInfo(framework: framework, testPullCounts: testPullCounts);
 
-  logPerfResult(perfReportHeaders());
+  printPerfReportHeaders();
   await kairoBench(framework);
   await molBench(framework);
   sbench(framework);
