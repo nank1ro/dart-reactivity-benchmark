@@ -1,37 +1,37 @@
 | Framework | Test Case | Time (μs) |
 | --- | --- | --- |
-| signals | avoidablePropagation | 98570 |
-| signals | broadPropagation | 207982 |
-| signals | deepPropagation | 93334 |
-| signals | diamond | 146623 |
-| signals | mux | 189356 |
-| signals | repeatedObservers | 23483 |
-| signals | triangle | 53529 |
-| signals | unstable | 39736 |
-| signals | molBench | 276555 |
-| signals | create_signals | 16976 |
-| signals | comp_0to1 | 6562 |
-| signals | comp_1to1 | 10546 |
-| signals | comp_2to1 | 3707 |
-| signals | comp_4to1 | 1069 |
-| signals | comp_1000to1 | 2 |
-| signals | comp_1to2 | 9006 |
-| signals | comp_1to4 | 4777 |
-| signals | comp_1to8 | 3820 |
-| signals | comp_1to1000 | 1969 |
-| signals | update_1to1 | 4063 |
-| signals | update_2to1 | 2088 |
-| signals | update_4to1 | 1074 |
-| signals | update_1000to1 | 10 |
-| signals | update_1to2 | 2238 |
-| signals | update_1to4 | 1086 |
-| signals | update_1to1000 | 28 |
-| signals | cellx1000 | 4293 |
-| signals | cellx2500 | 14391 |
-| signals | cellx5000 | 39837 |
-| signals | 10x5 - 2 sources - read 20.0% (simple) | 241904 |
-| signals | 10x10 - 6 sources - dynamic - read 20.0% (dynamic) | 122867 |
-| signals | 1000x12 - 4 sources - dynamic (large) | 2532554 |
-| signals | 1000x5 - 25 sources (wide dense) | 2246103 |
-| signals | 5x500 - 3 sources (deep) | 106259 |
-| signals | 100x15 - 6 sources - dynamic (very dynamic) | 260535 |
+| signals | kairo avoidablePropagation (success) | 105684 |
+| signals | kairo broadPropagation (success) | 225085 |
+| signals | kairo deepPropagation (success) | 92381 |
+| signals | kairo diamond (success) | 156389 |
+| signals | kairo mux (success) | 209114 |
+| signals | kairo repeatedObservers (success) | 25328 |
+| signals | kairo triangle (success) | 56931 |
+| signals | kairo unstable (success) | 42919 |
+| signals | molBench | 275847 |
+| signals | create_signals | 16635 |
+| signals | comp_0to1 | 6478 |
+| signals | comp_1to1 | 10553 |
+| signals | comp_2to1 | 7597 |
+| signals | comp_4to1 | 1599 |
+| signals | comp_1000to1 | 1 |
+| signals | comp_1to2 | 8408 |
+| signals | comp_1to4 | 5229 |
+| signals | comp_1to8 | 6170 |
+| signals | comp_1to1000 | 2001 |
+| signals | update_1to1 | 4302 |
+| signals | update_2to1 | 2360 |
+| signals | update_4to1 | 1089 |
+| signals | update_1000to1 | 11 |
+| signals | update_1to2 | 2230 |
+| signals | update_1to4 | 1159 |
+| signals | update_1to1000 | 22 |
+| signals | cellx1000 | 4180 |
+| signals | cellx2500 | 14249 |
+| signals | cellx5000 | 32616 |
+| signals | 10x5 - 2 sources - read 20.0% (simple) | 260857 |
+| signals | 10x10 - 6 sources - dynamic - read 20.0% (dynamic) | 128359 |
+| signals | 1000x12 - 4 sources - dynamic (large) | 2588605 |
+| signals | 1000x5 - 25 sources (wide dense) | 2337025 |
+| signals | 5x500 - 3 sources (deep) | 113117 |
+| signals | 100x15 - 6 sources - dynamic (very dynamic) | 265537 |
