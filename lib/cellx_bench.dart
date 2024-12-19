@@ -87,7 +87,7 @@ void cellxBench(ReactiveFramework framework) {
 
     logPerfResult(PerfRowStrings(
       framework: framework.name,
-      test: 'cellx $layers',
+      test: 'cellx$layers',
       time: total.toString(),
     ));
   }
