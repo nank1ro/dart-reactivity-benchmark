@@ -1,4 +1,3 @@
-import 'reactive_framework.dart';
 import 'utils/perf_tests.dart';
 
 class TestConfig {
@@ -22,14 +21,4 @@ class TestConfig {
   final double readFraction;
   final int iterations;
   final TestResult expected;
-}
-
-class FrameworkInfo {
-  const FrameworkInfo({
-    required this.framework,
-    this.testPullCounts,
-  });
-
-  final ReactiveFramework framework;
-  final bool? testPullCounts;
 }

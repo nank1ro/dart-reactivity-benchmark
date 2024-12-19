@@ -5,3 +5,8 @@ void busy() {
   }
   a;
 }
+
+enum KairoState {
+  success,
+  fail,
+}

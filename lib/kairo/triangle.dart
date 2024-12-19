@@ -1,7 +1,8 @@
 import '../reactive_framework.dart';
 import '../utils/dep_graph.dart';
+import 'utils.dart';
 
-void Function() triangle(ReactiveFramework framework) {
+KairoState Function() triangle(ReactiveFramework framework) {
   const width = 10;
   return framework.withBuild(() {
     final head = framework.signal(0);
@@ -27,19 +28,32 @@ void Function() triangle(ReactiveFramework framework) {
     });
 
     return () {
+      KairoState state = KairoState.success;
       final constant = _count(width);
       framework.withBatch(() {
         head.write(1);
       });
-      assert(sum.read() == constant);
+
+      if (sum.read() != constant) {
+        state = KairoState.fail;
+      }
 
       callCounter.count = 0;
       for (int i = 0; i < 100; i++) {
         framework.withBatch(() {
           head.write(i);
         });
-        assert(sum.read() == constant - width + i * width);
+
+        if (sum.read() != constant - width + i * width) {
+          state = KairoState.fail;
+        }
       }
+
+      if (callCounter.count != 100) {
+        return KairoState.fail;
+      }
+
+      return state;
     };
   });
 }

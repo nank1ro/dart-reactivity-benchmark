@@ -1,4 +1,5 @@
 import '../framework_type.dart';
+import '../reactive_framework.dart';
 
 class TestResult {
   const TestResult({
@@ -22,9 +23,8 @@ class TimingResult<T> {
   final TestTiming timing;
 }
 
-void verifyBenchResult(FrameworkInfo info, TestConfig config,
+void verifyBenchResult(ReactiveFramework framework, TestConfig config,
     TimingResult<TestResult> timingResult) {
-  final FrameworkInfo(:framework, :testPullCounts) = info;
   final TestConfig(:expected) = config;
   final TimingResult<TestResult>(:result) = timingResult;
 
@@ -33,10 +33,7 @@ void verifyBenchResult(FrameworkInfo info, TestConfig config,
         '\x1B[31msum ${framework.name} ${config.name} result:${result.sum} expected:${expected.sum}\x1B[0m');
   }
 
-  if (expected.count != 0 &&
-      (config.readFraction == 1 || testPullCounts == true) &&
-      testPullCounts != false &&
-      expected.count != result.count) {
+  if (expected.count != 0 && expected.count != result.count) {
     print(
         '\x1B[31mcount ${framework.name} ${config.name} result:${result.count} expected:${expected.count}\x1B[0m');
   }

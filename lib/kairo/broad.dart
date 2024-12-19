@@ -1,7 +1,8 @@
 import '../reactive_framework.dart';
 import '../utils/dep_graph.dart';
+import 'utils.dart';
 
-void Function() broadPropagation(ReactiveFramework framework) {
+KairoState Function() broadPropagation(ReactiveFramework framework) {
   final head = framework.signal(0);
   ISignal<int> last = head;
   final callCounter = Counter();
@@ -24,6 +25,8 @@ void Function() broadPropagation(ReactiveFramework framework) {
   }
 
   return () {
+    KairoState state = KairoState.success;
+
     framework.withBatch(() {
       head.write(1);
     });
@@ -33,7 +36,13 @@ void Function() broadPropagation(ReactiveFramework framework) {
       framework.withBatch(() {
         head.write(i);
       });
-      assert(last.read() == i + 50);
+
+      final count = (i + 1) * 50;
+      if (last.read() != i + 50 || callCounter.count != count) {
+        state = KairoState.fail;
+      }
     }
+
+    return state;
   };
 }

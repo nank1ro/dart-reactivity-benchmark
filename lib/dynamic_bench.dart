@@ -1,12 +1,13 @@
 import 'config.dart';
 import 'framework_type.dart';
+import 'reactive_framework.dart';
 import 'utils/bench_repeat.dart';
 import 'utils/dep_graph.dart';
 import 'utils/perf_logging.dart';
 import 'utils/perf_tests.dart';
 
-Future<void> dynamicBench(FrameworkInfo info, {int testRepeats = 1}) async {
-  final FrameworkInfo(:framework) = info;
+Future<void> dynamicBench(ReactiveFramework framework,
+    {int testRepeats = 1}) async {
   for (final config in perfTests) {
     final TestConfig(:iterations, :readFraction) = config;
     final counter = Counter();
@@ -31,6 +32,6 @@ Future<void> dynamicBench(FrameworkInfo info, {int testRepeats = 1}) async {
     });
 
     logPerfResult(perfRowStrings(framework.name, config, timingResult));
-    verifyBenchResult(info, config, timingResult);
+    verifyBenchResult(framework, config, timingResult);
   }
 }

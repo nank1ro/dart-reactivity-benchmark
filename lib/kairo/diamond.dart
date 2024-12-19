@@ -1,7 +1,8 @@
 import '../reactive_framework.dart';
 import '../utils/dep_graph.dart';
+import 'utils.dart';
 
-void Function() diamond(ReactiveFramework framework) {
+KairoState Function() diamond(ReactiveFramework framework) {
   const width = 5;
 
   return framework.withBuild(() {
@@ -24,10 +25,13 @@ void Function() diamond(ReactiveFramework framework) {
     });
 
     return () {
+      KairoState state = KairoState.success;
       framework.withBatch(() {
         head.write(1);
       });
-      assert(sum.read() == 2 * width);
+      if (sum.read() != 2 * width) {
+        state = KairoState.fail;
+      }
 
       callCounter.count = 0;
       for (int i = 0; i < 500; i++) {
@@ -35,7 +39,16 @@ void Function() diamond(ReactiveFramework framework) {
           head.write(i);
         });
         assert(sum.read() == (i + 1) * width);
+        if (sum.read() != (i + 1) * width) {
+          state = KairoState.fail;
+        }
       }
+
+      if (callCounter.count != 500) {
+        return KairoState.fail;
+      }
+
+      return state;
     };
   });
 }

@@ -34,8 +34,5 @@ final class _StateBeaconReactiveFramework extends ReactiveFramework {
 }
 
 void main() {
-  runFrameworkBench(
-    const _StateBeaconReactiveFramework(),
-    testPullCounts: true,
-  );
+  runFrameworkBench(const _StateBeaconReactiveFramework());
 }

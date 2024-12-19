@@ -37,6 +37,7 @@ final class _PreactSignalsReactiveFramework extends ReactiveFramework {
 }
 
 void main() {
-  runFrameworkBench(const _PreactSignalsReactiveFramework(),
-      testPullCounts: true);
+  runFrameworkBench(
+    const _PreactSignalsReactiveFramework(),
+  );
 }

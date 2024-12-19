@@ -35,5 +35,5 @@ final class _SolidartReactiveFramework extends ReactiveFramework {
 
 void main() {
   solidart.SolidartConfig.devToolsEnabled = false;
-  runFrameworkBench(const _SolidartReactiveFramework(), testPullCounts: true);
+  runFrameworkBench(const _SolidartReactiveFramework());
 }

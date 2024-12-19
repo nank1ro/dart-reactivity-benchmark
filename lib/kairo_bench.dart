@@ -1,3 +1,4 @@
+import 'kairo/utils.dart';
 import 'utils/bench_repeat.dart';
 import 'utils/perf_logging.dart';
 import 'reactive_framework.dart';
@@ -29,18 +30,21 @@ Future<void> kairoBench(ReactiveFramework framework) async {
     });
 
     // warm up
-    iter();
+    KairoState state = iter();
 
     final timingResult = await fastestTest(10, () {
       for (int i = 0; i < 1000; i++) {
-        iter();
+        final itemState = iter();
+        if (state == KairoState.success) {
+          state = itemState;
+        }
       }
       return null;
     });
 
     logPerfResult(PerfRowStrings(
       framework: framework.name,
-      test: name,
+      test: 'kairo $name (${state.name})',
       time: timingResult.timing.time.toString(),
     ));
   }

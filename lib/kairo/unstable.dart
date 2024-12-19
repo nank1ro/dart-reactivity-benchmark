@@ -1,7 +1,8 @@
 import '../reactive_framework.dart';
 import '../utils/dep_graph.dart';
+import 'utils.dart';
 
-void Function() unstable(ReactiveFramework framework) {
+KairoState Function() unstable(ReactiveFramework framework) {
   return framework.withBuild(() {
     final head = framework.signal(0);
     final double = framework.computed(() => head.read() * 2);
@@ -24,14 +25,25 @@ void Function() unstable(ReactiveFramework framework) {
       framework.withBatch(() {
         head.write(1);
       });
-      assert(current.read() == 40);
-
+      KairoState state =
+          current.read() == 40 ? KairoState.success : KairoState.fail;
       callCounter.count = 0;
+
       for (int i = 0; i < 100; i++) {
         framework.withBatch(() {
           head.write(i);
         });
+
+        if (current.read() != (i % 2 == 1 ? i * 2 : -i) * 20) {
+          return KairoState.fail;
+        }
       }
+
+      if (callCounter.count != 100) {
+        return KairoState.fail;
+      }
+
+      return state;
     };
   });
 }

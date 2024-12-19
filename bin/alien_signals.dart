@@ -36,6 +36,7 @@ final class _AlientSignalsReactiveFramework extends ReactiveFramework {
 }
 
 void main() {
-  runFrameworkBench(const _AlientSignalsReactiveFramework(),
-      testPullCounts: true);
+  runFrameworkBench(
+    const _AlientSignalsReactiveFramework(),
+  );
 }
