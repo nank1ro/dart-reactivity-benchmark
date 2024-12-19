@@ -7,6 +7,7 @@ Benchmark comparing different standalone Dart reactivity/signals frameworks.
 - preact_signals
 - signals
 - solidart
+- state_beacon
 
 ### System Information:
   - Operating System: macOS 15.2 24C101
