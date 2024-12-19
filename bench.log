@@ -1,150 +1,246 @@
+System Information:
+  Operating System: macOS 15.2 24C101
+  Model: Mac15,10
+  Memory: 36.00 GB
+  CPU: Apple M3 Max
+
+==================== signals ====================
+2024年12月19日 星期四 12时56分28秒 CST
 framework              , test                                                         , time (μs)
-alien_signals          , avoidablePropagation                                         , 103128   
-alien_signals          , broadPropagation                                             , 195506   
-alien_signals          , deepPropagation                                              , 77692    
-alien_signals          , diamond                                                      , 135102   
-alien_signals          , mux                                                          , 199750   
-alien_signals          , repeatedObservers                                            , 14467    
-alien_signals          , triangle                                                     , 54662    
-alien_signals          , unstable                                                     , 27004    
-alien_signals          , molBench                                                     , 324379   
-alien_signals          , create_signals                                               , 1730     
-alien_signals          , comp_0to1                                                    , 914      
-alien_signals          , comp_1to1                                                    , 2805     
-alien_signals          , comp_2to1                                                    , 1305     
-alien_signals          , comp_4to1                                                    , 1844     
-alien_signals          , comp_1000to1                                                 , 164      
-alien_signals          , comp_1to2                                                    , 1364     
-alien_signals          , comp_1to4                                                    , 1762     
-alien_signals          , comp_1to8                                                    , 2598     
-alien_signals          , comp_1to1000                                                 , 418      
-alien_signals          , update_1to1                                                  , 2615     
-alien_signals          , update_2to1                                                  , 1462     
-alien_signals          , update_4to1                                                  , 671      
-alien_signals          , update_1000to1                                               , 9        
-alien_signals          , update_1to2                                                  , 1537     
-alien_signals          , update_1to4                                                  , 691      
-alien_signals          , update_1to1000                                               , 23       
-alien_signals          , cellx 1000                                                   , 5066     
-alien_signals          , cellx 2500                                                   , 11052    
-alien_signals          , cellx 5000                                                   , 27055    
-alien_signals          , 10x5 - 2 sources - read 20.0% (simple)                       , 210244   
-alien_signals          , 10x10 - 6 sources - dynamic - read 20.0% (dynamic)           , 120361   
-alien_signals          , 1000x12 - 4 sources - dynamic (large)                        , 231763   
-alien_signals          , 1000x5 - 25 sources (wide dense)                             , 306360   
-alien_signals          , 5x500 - 3 sources (deep)                                     , 123906   
-alien_signals          , 100x15 - 6 sources - dynamic (very dynamic)                  , 173016   
+signals                , avoidablePropagation                                         , 97413    
+signals                , broadPropagation                                             , 214316   
+signals                , deepPropagation                                              , 94180    
+signals                , diamond                                                      , 150165   
+signals                , mux                                                          , 199246   
+signals                , repeatedObservers                                            , 24057    
+signals                , triangle                                                     , 54417    
+signals                , unstable                                                     , 40908    
+signals                , molBench                                                     , 275002   
+signals                , create_signals                                               , 12592    
+signals                , comp_0to1                                                    , 4832     
+signals                , comp_1to1                                                    , 8512     
+signals                , comp_2to1                                                    , 7592     
+signals                , comp_4to1                                                    , 1347     
+signals                , comp_1000to1                                                 , 2        
+signals                , comp_1to2                                                    , 5581     
+signals                , comp_1to4                                                    , 8441     
+signals                , comp_1to8                                                    , 3548     
+signals                , comp_1to1000                                                 , 1927     
+signals                , update_1to1                                                  , 4612     
+signals                , update_2to1                                                  , 2338     
+signals                , update_4to1                                                  , 1094     
+signals                , update_1000to1                                               , 11       
+signals                , update_1to2                                                  , 2291     
+signals                , update_1to4                                                  , 1127     
+signals                , update_1to1000                                               , 22       
+signals                , cellx 1000                                                   , 4208     
+signals                , cellx 2500                                                   , 14269    
+signals                , cellx 5000                                                   , 35070    
+signals                , 10x5 - 2 sources - read 20.0% (simple)                       , 248267   
+signals                , 10x10 - 6 sources - dynamic - read 20.0% (dynamic)           , 126414   
+signals                , 1000x12 - 4 sources - dynamic (large)                        , 2506215  
+signals                , 1000x5 - 25 sources (wide dense)                             , 2172896  
+signals                , 5x500 - 3 sources (deep)                                     , 108705   
+signals                , 100x15 - 6 sources - dynamic (very dynamic)                  , 251459   
+
+real	0m23.392s
+user	0m23.170s
+sys	0m0.141s
+Benchmark for signals took:
+  Real: 0m23.392s
+  User: 0m23.170s
+  System: 0m0.141s
+
+==================== alien_signals ====================
+2024年12月19日 星期四 12时56分52秒 CST
 framework              , test                                                         , time (μs)
-preact_signals         , avoidablePropagation                                         , 108558   
-preact_signals         , broadPropagation                                             , 276301   
-preact_signals         , deepPropagation                                              , 82915    
-preact_signals         , diamond                                                      , 147262   
-preact_signals         , mux                                                          , 197341   
-preact_signals         , repeatedObservers                                            , 25054    
-preact_signals         , triangle                                                     , 57231    
-preact_signals         , unstable                                                     , 39670    
-preact_signals         , molBench                                                     , 326883   
-preact_signals         , create_signals                                               , 10282    
-preact_signals         , comp_0to1                                                    , 1285     
-preact_signals         , comp_1to1                                                    , 3568     
-preact_signals         , comp_2to1                                                    , 2287     
-preact_signals         , comp_4to1                                                    , 1399     
-preact_signals         , comp_1000to1                                                 , 8        
-preact_signals         , comp_1to2                                                    , 1118     
-preact_signals         , comp_1to4                                                    , 2040     
-preact_signals         , comp_1to8                                                    , 3269     
-preact_signals         , comp_1to1000                                                 , 538      
-preact_signals         , update_1to1                                                  , 5586     
-preact_signals         , update_2to1                                                  , 2587     
-preact_signals         , update_4to1                                                  , 1194     
-preact_signals         , update_1000to1                                               , 13       
-preact_signals         , update_1to2                                                  , 2469     
-preact_signals         , update_1to4                                                  , 1132     
-preact_signals         , update_1to1000                                               , 22       
-preact_signals         , cellx 1000                                                   , 5485     
-preact_signals         , cellx 2500                                                   , 15068    
-preact_signals         , cellx 5000                                                   , 40202    
-preact_signals         , 10x5 - 2 sources - read 20.0% (simple)                       , 301351   
-preact_signals         , 10x10 - 6 sources - dynamic - read 20.0% (dynamic)           , 133182   
-preact_signals         , 1000x12 - 4 sources - dynamic (large)                        , 2477892  
-preact_signals         , 1000x5 - 25 sources (wide dense)                             , 2262170  
-preact_signals         , 5x500 - 3 sources (deep)                                     , 118379   
-preact_signals         , 100x15 - 6 sources - dynamic (very dynamic)                  , 213629   
+alien_signals          , avoidablePropagation                                         , 87488    
+alien_signals          , broadPropagation                                             , 188896   
+alien_signals          , deepPropagation                                              , 76828    
+alien_signals          , diamond                                                      , 116247   
+alien_signals          , mux                                                          , 185360   
+alien_signals          , repeatedObservers                                            , 11868    
+alien_signals          , triangle                                                     , 46650    
+alien_signals          , unstable                                                     , 22638    
+alien_signals          , molBench                                                     , 272680   
+alien_signals          , create_signals                                               , 9142     
+alien_signals          , comp_0to1                                                    , 2162     
+alien_signals          , comp_1to1                                                    , 7164     
+alien_signals          , comp_2to1                                                    , 5171     
+alien_signals          , comp_4to1                                                    , 3025     
+alien_signals          , comp_1000to1                                                 , 2        
+alien_signals          , comp_1to2                                                    , 5180     
+alien_signals          , comp_1to4                                                    , 5803     
+alien_signals          , comp_1to8                                                    , 2377     
+alien_signals          , comp_1to1000                                                 , 1796     
+alien_signals          , update_1to1                                                  , 1887     
+alien_signals          , update_2to1                                                  , 927      
+alien_signals          , update_4to1                                                  , 474      
+alien_signals          , update_1000to1                                               , 6        
+alien_signals          , update_1to2                                                  , 936      
+alien_signals          , update_1to4                                                  , 466      
+alien_signals          , update_1to1000                                               , 17       
+alien_signals          , cellx 1000                                                   , 3452     
+alien_signals          , cellx 2500                                                   , 9557     
+alien_signals          , cellx 5000                                                   , 22776    
+alien_signals          , 10x5 - 2 sources - read 20.0% (simple)                       , 142451   
+alien_signals          , 10x10 - 6 sources - dynamic - read 20.0% (dynamic)           , 99635    
+alien_signals          , 1000x12 - 4 sources - dynamic (large)                        , 148108   
+alien_signals          , 1000x5 - 25 sources (wide dense)                             , 242768   
+alien_signals          , 5x500 - 3 sources (deep)                                     , 111381   
+alien_signals          , 100x15 - 6 sources - dynamic (very dynamic)                  , 137221   
+
+real	0m12.548s
+user	0m12.353s
+sys	0m0.093s
+Benchmark for alien_signals took:
+  Real: 0m12.548s
+  User: 0m12.353s
+  System: 0m0.093s
+
+==================== state_beacon ====================
+2024年12月19日 星期四 12时57分06秒 CST
 framework              , test                                                         , time (μs)
-signals                , avoidablePropagation                                         , 385929   
-signals                , broadPropagation                                             , 982551   
-signals                , deepPropagation                                              , 421643   
-signals                , diamond                                                      , 645941   
-signals                , mux                                                          , 325681   
-signals                , repeatedObservers                                            , 58479    
-signals                , triangle                                                     , 221294   
-signals                , unstable                                                     , 94018    
-signals                , molBench                                                     , 367897   
-signals                , create_signals                                               , 39504    
-signals                , comp_0to1                                                    , 28443    
-signals                , comp_1to1                                                    , 24415    
-signals                , comp_2to1                                                    , 13435    
-signals                , comp_4to1                                                    , 13340    
-signals                , comp_1000to1                                                 , 44       
-signals                , comp_1to2                                                    , 50006    
-signals                , comp_1to4                                                    , 52474    
-signals                , comp_1to8                                                    , 39679    
-signals                , comp_1to1000                                                 , 23580    
-signals                , update_1to1                                                  , 65457    
-signals                , update_2to1                                                  , 33865    
-signals                , update_4to1                                                  , 16759    
-signals                , update_1000to1                                               , 157      
-signals                , update_1to2                                                  , 34039    
-signals                , update_1to4                                                  , 16961    
-signals                , update_1to1000                                               , 392      
-signals                , cellx 1000                                                   , 15272    
-signals                , cellx 2500                                                   , 55505    
-signals                , cellx 5000                                                   , 103630   
-signals                , 10x5 - 2 sources - read 20.0% (simple)                       , 944972   
-signals                , 10x10 - 6 sources - dynamic - read 20.0% (dynamic)           , 365516   
-signals                , 1000x12 - 4 sources - dynamic (large)                        , 3120110  
-signals                , 1000x5 - 25 sources (wide dense)                             , 2810239  
-signals                , 5x500 - 3 sources (deep)                                     , 458525   
-signals                , 100x15 - 6 sources - dynamic (very dynamic)                  , 466153   
+state_beacon           , avoidablePropagation                                         , 88775    
+state_beacon           , broadPropagation                                             , 2835     
+state_beacon           , deepPropagation                                              , 90653    
+state_beacon           , diamond                                                      , 94770    
+state_beacon           , mux                                                          , 98436    
+state_beacon           , repeatedObservers                                            , 25335    
+state_beacon           , triangle                                                     , 42803    
+state_beacon           , unstable                                                     , 6305     
+state_beacon           , molBench                                                     , 445      
+state_beacon           , create_signals                                               , 29232    
+state_beacon           , comp_0to1                                                    , 24469    
+state_beacon           , comp_1to1                                                    , 20690    
+state_beacon           , comp_2to1                                                    , 12962    
+state_beacon           , comp_4to1                                                    , 7242     
+state_beacon           , comp_1000to1                                                 , 20       
+state_beacon           , comp_1to2                                                    , 22204    
+state_beacon           , comp_1to4                                                    , 21408    
+state_beacon           , comp_1to8                                                    , 21069    
+state_beacon           , comp_1to1000                                                 , 19627    
+state_beacon           , update_1to1                                                  , 2831     
+state_beacon           , update_2to1                                                  , 1542     
+state_beacon           , update_4to1                                                  , 747      
+state_beacon           , update_1000to1                                               , 8        
+state_beacon           , update_1to2                                                  , 1495     
+state_beacon           , update_1to4                                                  , 777      
+state_beacon           , update_1to1000                                               , 195      
+state_beacon           , cellx 1000                                                   , 2901     
+state_beacon           , cellx 2500                                                   , 10362    
+state_beacon           , cellx 5000                                                   , 39002    
+state_beacon           , 10x5 - 2 sources - read 20.0% (simple)                       , 151741   
+state_beacon           , 10x10 - 6 sources - dynamic - read 20.0% (dynamic)           , 107752   
+state_beacon           , 1000x12 - 4 sources - dynamic (large)                        , 189249   
+state_beacon           , 1000x5 - 25 sources (wide dense)                             , 264321   
+state_beacon           , 5x500 - 3 sources (deep)                                     , 126014   
+state_beacon           , 100x15 - 6 sources - dynamic (very dynamic)                  , 144030   
+
+real	0m8.372s
+user	0m8.402s
+sys	0m0.162s
+Benchmark for state_beacon took:
+  Real: 0m8.372s
+  User: 0m8.402s
+  System: 0m0.162s
+
+==================== preact_signals ====================
+2024年12月19日 星期四 12时57分15秒 CST
 framework              , test                                                         , time (μs)
-solidart               , avoidablePropagation                                         , 800215   
-solidart               , broadPropagation                                             , 2189332  
-solidart               , deepPropagation                                              , 818380   
-solidart               , diamond                                                      , 1321617  
-solidart               , mux                                                          , 762210   
-solidart               , repeatedObservers                                            , 90153    
-solidart               , triangle                                                     , 481765   
-solidart               , unstable                                                     , 149999   
-solidart               , molBench                                                     , 1103060  
-solidart               , create_signals                                               , 12214    
-solidart               , comp_0to1                                                    , 8201     
-solidart               , comp_1to1                                                    , 20579    
-solidart               , comp_2to1                                                    , 9122     
-solidart               , comp_4to1                                                    , 13448    
-solidart               , comp_1000to1                                                 , 1858     
-solidart               , comp_1to2                                                    , 20391    
-solidart               , comp_1to4                                                    , 16859    
-solidart               , comp_1to8                                                    , 12275    
-solidart               , comp_1to1000                                                 , 8932     
-solidart               , update_1to1                                                  , 26938    
-solidart               , update_2to1                                                  , 13365    
-solidart               , update_4to1                                                  , 6771     
-solidart               , update_1000to1                                               , 86       
-solidart               , update_1to2                                                  , 13546    
-solidart               , update_1to4                                                  , 7036     
-solidart               , update_1to1000                                               , 133      
-solidart               , cellx 1000                                                   , 60074    
-solidart               , cellx 2500                                                   , 193576   
-solidart               , cellx 5000                                                   , 425164   
-solidart               , 10x5 - 2 sources - read 20.0% (simple)                       , 1262810  
+preact_signals         , avoidablePropagation                                         , 97182    
+preact_signals         , broadPropagation                                             , 216224   
+preact_signals         , deepPropagation                                              , 91117    
+preact_signals         , diamond                                                      , 145546   
+preact_signals         , mux                                                          , 197192   
+preact_signals         , repeatedObservers                                            , 21262    
+preact_signals         , triangle                                                     , 53943    
+preact_signals         , unstable                                                     , 35220    
+preact_signals         , molBench                                                     , 273798   
+preact_signals         , create_signals                                               , 2130     
+preact_signals         , comp_0to1                                                    , 7229     
+preact_signals         , comp_1to1                                                    , 7746     
+preact_signals         , comp_2to1                                                    , 1183     
+preact_signals         , comp_4to1                                                    , 6438     
+preact_signals         , comp_1000to1                                                 , 1        
+preact_signals         , comp_1to2                                                    , 2499     
+preact_signals         , comp_1to4                                                    , 9041     
+preact_signals         , comp_1to8                                                    , 2422     
+preact_signals         , comp_1to1000                                                 , 1543     
+preact_signals         , update_1to1                                                  , 4072     
+preact_signals         , update_2to1                                                  , 2108     
+preact_signals         , update_4to1                                                  , 1038     
+preact_signals         , update_1000to1                                               , 10       
+preact_signals         , update_1to2                                                  , 2057     
+preact_signals         , update_1to4                                                  , 1097     
+preact_signals         , update_1to1000                                               , 21       
+preact_signals         , cellx 1000                                                   , 4100     
+preact_signals         , cellx 2500                                                   , 11086    
+preact_signals         , cellx 5000                                                   , 32662    
+preact_signals         , 10x5 - 2 sources - read 20.0% (simple)                       , 221969   
+preact_signals         , 10x10 - 6 sources - dynamic - read 20.0% (dynamic)           , 123090   
+preact_signals         , 1000x12 - 4 sources - dynamic (large)                        , 1947154  
+preact_signals         , 1000x5 - 25 sources (wide dense)                             , 1657476  
+preact_signals         , 5x500 - 3 sources (deep)                                     , 110351   
+preact_signals         , 100x15 - 6 sources - dynamic (very dynamic)                  , 219692   
+
+real	0m20.391s
+user	0m20.212s
+sys	0m0.126s
+Benchmark for preact_signals took:
+  Real: 0m20.391s
+  User: 0m20.212s
+  System: 0m0.126s
+
+==================== solidart ====================
+2024年12月19日 星期四 12时57分36秒 CST
+framework              , test                                                         , time (μs)
+solidart               , avoidablePropagation                                         , 1093732  
+solidart               , broadPropagation                                             , 2524394  
+solidart               , deepPropagation                                              , 946288   
+solidart               , diamond                                                      , 1688621  
+solidart               , mux                                                          , 993658   
+solidart               , repeatedObservers                                            , 103741   
+solidart               , triangle                                                     , 562538   
+solidart               , unstable                                                     , 160040   
+solidart               , molBench                                                     , 1009093  
+solidart               , create_signals                                               , 30417    
+solidart               , comp_0to1                                                    , 9403     
+solidart               , comp_1to1                                                    , 18059    
+solidart               , comp_2to1                                                    , 11633    
+solidart               , comp_4to1                                                    , 14192    
+solidart               , comp_1000to1                                                 , 1552     
+solidart               , comp_1to2                                                    , 18084    
+solidart               , comp_1to4                                                    , 12676    
+solidart               , comp_1to8                                                    , 11633    
+solidart               , comp_1to1000                                                 , 9268     
+solidart               , update_1to1                                                  , 18811    
+solidart               , update_2to1                                                  , 9105     
+solidart               , update_4to1                                                  , 4631     
+solidart               , update_1000to1                                               , 51       
+solidart               , update_1to2                                                  , 9345     
+solidart               , update_1to4                                                  , 4631     
+solidart               , update_1to1000                                               , 104      
+solidart               , cellx 1000                                                   , 72651    
+solidart               , cellx 2500                                                   , 217240   
+solidart               , cellx 5000                                                   , 483206   
+solidart               , 10x5 - 2 sources - read 20.0% (simple)                       , 1325130  
 [31mcount solidart simple result:4200119 expected:3180010[0m
-solidart               , 10x10 - 6 sources - dynamic - read 20.0% (dynamic)           , 1102152  
+solidart               , 10x10 - 6 sources - dynamic - read 20.0% (dynamic)           , 1304460  
 [31mcount solidart dynamic result:1626522 expected:1140004[0m
-solidart               , 1000x12 - 4 sources - dynamic (large)                        , 2214539  
+solidart               , 1000x12 - 4 sources - dynamic (large)                        , 2077009  
 [31mcount solidart large result:9228429 expected:1473789[0m
-solidart               , 1000x5 - 25 sources (wide dense)                             , 2695678  
+solidart               , 1000x5 - 25 sources (wide dense)                             , 2623516  
 [31mcount solidart wide dense result:3734737 expected:735756[0m
-solidart               , 5x500 - 3 sources (deep)                                     , 894601   
+solidart               , 5x500 - 3 sources (deep)                                     , 999368   
 [31mcount solidart deep result:1999683 expected:1246502[0m
-solidart               , 100x15 - 6 sources - dynamic (very dynamic)                  , 1282773  
+solidart               , 100x15 - 6 sources - dynamic (very dynamic)                  , 1414728  
 [31mcount solidart very dynamic result:1885314 expected:1078734[0m
+
+real	1m53.381s
+user	1m52.711s
+sys	0m2.163s
+Benchmark for solidart took:
+  Real: 1m53.381s
+  User: 1m52.711s
+  System: 0m2.163s
