@@ -10,8 +10,6 @@ if [ ${#frameworks[@]} -eq 0 ]; then
   exit 1
 fi
 
-dart pub get || exit 1
-
 for framework in "${frameworks[@]}"
 do
   echo "==================== $framework ===================="

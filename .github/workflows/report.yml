@@ -1,0 +1,27 @@
+name: Benchmark Report
+on:
+  push:
+    branches: ["main"]
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+jobs:
+  bench:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+      - run: dart pub get
+      - name: Run benchmarks
+        run: ./bench.sh
+      - name: Generate report
+        run: dart run gen_bench_report.dart
+      - name: Commit report
+        run: |
+          git config --local user.email "${{ github.actor }}@users.noreply.github.com"
+          git config --local user.name "${{ github.actor }}"
+          git add .
+          git commit -m "chore: Update benchmark report [skip ci]" --all -s
+          git push
