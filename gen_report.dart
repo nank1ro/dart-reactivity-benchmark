@@ -60,13 +60,7 @@ Future<void> main() async {
   readmeContent = readmeContent.replaceRange(
       testCaseStart, testCaseEnd, testCaseTable.toString());
 
-  // 计算排名
-  // 规则如下：
-  // 1. 每个测试用力时间最短的得分 1.0，其余框架同测试用力的时间除以最短时间。比如最短时间为 100ms，其他框架的时间为 200ms，其余则得分为 0.5
-  // 2. 每个框架的得分为所有测试用例的得分之和。
-  // 3. 如果测试用例状态为 fail，则得分为 0
-  // 4. 测试用例如果状态包含 sun 和 count，count 和 sum 均为 pass 则按照 1 正常计算，如果只有其中一个为 fail 则得分除以2，全部为 fail 得分为 0
-  // 5. 每个框架的总分为所有测试用例的总分之和。
+  // The rank algorithm see https://github.com/medz/dart-reactivity-benchmark#ranking-algorithm
   final scores = <String, double>{};
   for (final MapEntry(value: group) in reports.entries) {
     final minMicroseconds = group.values
