@@ -15,7 +15,7 @@ jobs:
           sdk: stable
       - run: dart pub get
       - name: Run benchmarks
-        run: ./bench.sh
+        run: bash bench.sh
       - name: Generate report
         run: dart run gen_bench_report.dart
       - name: Commit report
