@@ -13,25 +13,15 @@ class PerfRowStrings {
   final String time;
 }
 
-const _frameworkWidth = 22;
-const _testWidth = 60;
-const _timeWidth = 9;
-
 String _percent(num n) {
   return '${(n * 100).toStringAsFixed(1)}%';
 }
 
 PerfRowStrings _trimColumns(PerfRowStrings row) {
-  String trimmed(String value, int length) {
-    return value
-        .trim()
-        .substring(0, length >= value.length ? value.length : length);
-  }
-
   return PerfRowStrings(
-    framework: trimmed(row.framework, _frameworkWidth),
-    test: trimmed(row.test, _testWidth),
-    time: trimmed(row.time, _timeWidth),
+    framework: row.framework.trim(),
+    test: row.test.trim(),
+    time: row.time.trim(),
   );
 }
 
@@ -56,12 +46,22 @@ void printPerfReportHeaders() {
 PerfRowStrings perfRowStrings(
   String framework,
   TestConfig config,
-  TimingResult<TestResult> result,
+  TimingResult<TestResult> timingResult,
 ) {
+  final TestConfig(:expected) = config;
+  final TimingResult<TestResult>(:result, :timing) = timingResult;
+
+  final sum = expected.sum != 0 && expected.sum != result.sum
+      ? 'sum: fial'
+      : 'sum: pass';
+  final count = expected.count != 0 && expected.count != result.count
+      ? 'count: fail'
+      : 'count: pass';
+
   return PerfRowStrings(
     framework: framework,
-    test: '${makeTitle(config)} (${config.name ?? ''})',
-    time: result.timing.time.toString(),
+    test: '${makeTitle(config)} (${config.name ?? ''}, $sum, $count)',
+    time: timing.time.toString(),
   );
 }
 

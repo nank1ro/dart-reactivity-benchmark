@@ -85,25 +85,17 @@ void cellxBench(ReactiveFramework framework) {
       total += elapsed;
     }
 
-    logPerfResult(PerfRowStrings(
-      framework: framework.name,
-      test: 'cellx$layers',
-      time: total.toString(),
-    ));
-  }
-
-  for (final layers in expected.keys) {
     final (before, after) = results[layers]!;
     final (expectedBefore, expectedAfter) = expected[layers]!;
+    final first =
+        _listEqual(before, expectedBefore) ? 'first: pass' : 'first: fail';
+    final last = _listEqual(after, expectedAfter) ? 'last: pass' : 'last: fail';
 
-    if (!_listEqual(before, expectedBefore)) {
-      print(
-          '\x1B[41m\x1B[37mExpected first layer $expectedBefore, found first layer $before\x1B[0m');
-    }
-    if (!_listEqual(after, expectedAfter)) {
-      print(
-          '\x1B[41m\x1B[37mExpected last layer $expectedAfter, found last layer $after\x1B[0m');
-    }
+    logPerfResult(PerfRowStrings(
+      framework: framework.name,
+      test: 'cellx$layers ($first, $last)',
+      time: total.toString(),
+    ));
   }
 }
 
