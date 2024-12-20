@@ -94,9 +94,11 @@ Future<void> main() async {
       2 => '🥉',
       _ => rank + 1,
     };
+    final frameworkLink = 'https://pub.dev/packages/$framework';
+    final displayFramework = '[$framework]($frameworkLink)';
 
-    rankTable
-        .writeln('| $displayRank | $framework | ${score.toStringAsFixed(2)} |');
+    rankTable.writeln(
+        '| $displayRank | $displayFramework | ${score.toStringAsFixed(2)} |');
   }
 
   final rankStart = readmeContent.indexOf('<!-- Rank Table -->') + 20;

@@ -19,11 +19,11 @@ bash bench.sh
 <!-- Rank Table -->
 | Rank | Framework | Score |
 |---|---|---|
-| 🥇 | alien_signals | 29.26 |
-| 🥈 | preact_signals | 20.61 |
-| 🥉 | signals | 19.22 |
-| 4 | state_beacon | 14.66 |
-| 5 | solidart | 3.41 |
+| 🥇 | [alien_signals](https://pub.dev/packages/alien_signals) | 29.26 |
+| 🥈 | [preact_signals](https://pub.dev/packages/preact_signals) | 20.61 |
+| 🥉 | [signals](https://pub.dev/packages/signals) | 19.22 |
+| 4 | [state_beacon](https://pub.dev/packages/state_beacon) | 14.66 |
+| 5 | [solidart](https://pub.dev/packages/solidart) | 3.41 |
 <!-- Rank Table End -->
 
 > [!TIP]
