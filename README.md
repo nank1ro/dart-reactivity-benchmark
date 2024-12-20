@@ -27,13 +27,12 @@ bash bench.sh
 <!-- Rank Table End -->
 
 > [!TIP]
-> **Ranking algorithm**
+> ## Ranking algorithm
 >
 > 1. The score of the test with the shortest test time is 1.0, and the score of the other frameworks is the time of the same test divided by the shortest time. For example, if the shortest time is 100ms and the time of other frameworks is 200ms, the scores of the others are 0.5
-> 2. The score of each framework is the sum of the scores of all test cases.
-> 3. If the test case status is fail, the score is 0
-> 4. If the test case status contains sun and count, and both count and sum are pass, the score is calculated as 1. If only one of them is fail, the score is divided by 2, and if all fail, the score is 0
-> 5. The total score of each framework is the sum of the total scores of all test cases.
+> 2. If the test case status is fail, the score is 0
+> 3. If the test case status contains sun and count, and both count and sum are pass, the score is calculated as 1 algorithm. If only one of them is fail, the score is divided by 2, and if all fail, the score is 0
+> 4. The total score of each framework is the sum of the total scores of all test cases.
 
 ## Performance benchmark results of each framework (unit: microsecond μs)
 
