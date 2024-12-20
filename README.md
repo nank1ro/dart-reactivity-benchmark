@@ -75,3 +75,7 @@ bash bench.sh
 | 5x500 - 3 sources (deep) | 103.92ms | 120.20ms | 1.0028s (half) | 108.09ms | 123.78ms |
 | 100x15 - 6 sources - dynamic (very dynamic) | 217.49ms | 143.59ms | 1.4209s (half) | 251.07ms | 143.71ms |
 <!-- Benchmark Table End -->
+
+> [!TIP]
+> - `(fail)`: Test case failed
+> - `(half)`: Half of the test cases failed
