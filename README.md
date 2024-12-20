@@ -14,63 +14,65 @@ Run all benchamrks
 bash bench.sh
 ```
 
-## Test System Information:
-  - Operating System: macOS 15.2 24C101
-  - Model: Mac15,10
-  - Memory: 36.00 GB
-  - CPU: Apple M3 Max
-
 ## Score Ranking
 
+<!-- Rank Table -->
 | Rank | Framework | Score |
 |---|---|---|
-| 1 | state_beacon | 28.56 |
-| 2 | alien_signals | 26.03 |
-| 3 | preact_signals | 18.78 |
-| 4 | signals | 17.25 |
-| 5 | solidart | 6.38 |
+| 🥇 | alien_signals | 29.26 |
+| 🥈 | preact_signals | 20.61 |
+| 🥉 | signals | 19.22 |
+| 4 | state_beacon | 14.66 |
+| 5 | solidart | 3.41 |
+<!-- Rank Table End -->
 
-> Ranking algorithm
+> [!TIP]
+> **Ranking algorithm**
 >
-> 1. In the same test case, the fastest framework gets 1 point, and other frameworks get relative scores by dividing this score by their own scores
-> 2. `Relative score = benchmark time / execution time of the framework`
-> 3. In order to get the overall performance of each framework, I add up the relative scores of the framework in all test cases to get a "comprehensive score". The higher the comprehensive score, the better the overall performance of the framework.
+> 1. The score of the test with the shortest test time is 1.0, and the score of the other frameworks is the time of the same test divided by the shortest time. For example, if the shortest time is 100ms and the time of other frameworks is 200ms, the scores of the others are 0.5
+> 2. The score of each framework is the sum of the scores of all test cases.
+> 3. If the test case status is fail, the score is 0
+> 4. If the test case status contains sun and count, and both count and sum are pass, the score is calculated as 1. If only one of them is fail, the score is divided by 2, and if all fail, the score is 0
+> 5. The total score of each framework is the sum of the total scores of all test cases.
+
 ## Performance benchmark results of each framework (unit: microsecond μs)
 
-| Test Case | alien_signals (μs) | preact_signals (μs) | signals (μs) | solidart (μs) | state_beacon (μs) |
+<!-- Benchmark Table -->
+| Test Case | preact_signals | alien_signals | solidart | signals | state_beacon |
 |---|---|---|---|---|---|
-| avoidablePropagation | 87183 | 90636 | 98570 | 1045651 | 89352 |
-| broadPropagation | 180404 | 198829 | 207982 | 2527207 | 3014 |
-| deepPropagation | 68828 | 89167 | 93334 | 936287 | 90915 |
-| diamond | 106510 | 136470 | 146623 | 1646753 | 87436 |
-| mux | 182640 | 185322 | 189356 | 968107 | 92272 |
-| repeatedObservers | 10703 | 19957 | 23483 | 106056 | 24701 |
-| triangle | 45782 | 52760 | 53529 | 552774 | 41389 |
-| unstable | 21396 | 32230 | 39736 | 164429 | 6060 |
-| molBench | 273806 | 273867 | 276555 | 956213 | 409 |
-| create_signals | 9312 | 2036 | 16976 | 28952 | 27562 |
-| comp_0to1 | 2183 | 7351 | 6562 | 9330 | 23123 |
-| comp_1to1 | 7853 | 7541 | 10546 | 16013 | 19276 |
-| comp_2to1 | 9439 | 1152 | 3707 | 18074 | 12546 |
-| comp_4to1 | 6854 | 6580 | 1069 | 8066 | 7140 |
-| comp_1000to1 | 2 | 2 | 2 | 1983 | 18 |
-| comp_1to2 | 5481 | 3861 | 9006 | 16981 | 20799 |
-| comp_1to4 | 5918 | 10506 | 4777 | 10043 | 19945 |
-| comp_1to8 | 2214 | 3973 | 3820 | 11254 | 20304 |
-| comp_1to1000 | 1623 | 1600 | 1969 | 8932 | 18627 |
-| update_1to1 | 1687 | 3820 | 4063 | 18745 | 2959 |
-| update_2to1 | 858 | 1879 | 2088 | 9474 | 1406 |
-| update_4to1 | 480 | 958 | 1074 | 4729 | 710 |
-| update_1000to1 | 6 | 11 | 10 | 54 | 8 |
-| update_1to2 | 939 | 1911 | 2238 | 9654 | 1462 |
-| update_1to4 | 469 | 1071 | 1086 | 4698 | 796 |
-| update_1to1000 | 19 | 19 | 28 | 116 | 189 |
-| cellx1000 | 3861 | 3937 | 4293 | 71858 | 2732 |
-| cellx2500 | 11204 | 10840 | 14391 | 212547 | 10051 |
-| cellx5000 | 26803 | 32268 | 39837 | 547031 | 38313 |
-| 10x5 - 2 sources | 141057 | 208999 | 241904 | 1290003 | 140556 |
-| 10x10 - 6 sources | 96622 | 114237 | 122867 | 1255346 | 99489 |
-| 1000x12 - 4 sources | 146678 | 1777127 | 2532554 | 2016302 | 181762 |
-| 1000x5 - 25 sources | 230729 | 1311223 | 2246103 | 2572250 | 241096 |
-| 5x500 - 3 sources | 119628 | 98145 | 106259 | 970439 | 117765 |
-| 100x15 - 6 sources | 141975 | 201107 | 260535 | 1397397 | 138507 |
+| kairo avoidablePropagation | 99.02ms | 93.28ms | 1.0921s | 93.19ms | 93.24ms (fail) |
+| kairo broadPropagation | 217.79ms | 187.69ms | 2.5504s | 206.29ms | 3.04ms (fail) |
+| kairo deepPropagation | 91.72ms | 71.38ms | 958.74ms | 93.23ms | 90.81ms (fail) |
+| kairo diamond | 146.08ms | 111.09ms | 1.6734s | 145.43ms | 96.56ms (fail) |
+| kairo mux | 193.79ms | 193.63ms | 1.0114s | 197.47ms | 97.79ms (fail) |
+| kairo repeatedObservers | 21.39ms | 10.87ms | 102.68ms | 24.13ms | 25.45ms (fail) |
+| kairo triangle | 55.14ms | 46.72ms | 556.46ms | 54.17ms | 43.21ms (fail) |
+| kairo unstable | 36.29ms | 22.92ms | 161.69ms | 41.05ms | 191.67ms (fail) |
+| molBench | 273.52ms | 272.95ms | 1.0225s | 276.99ms | 399μs |
+| create_signals | 2.03ms | 9.10ms | 21.53ms | 17.54ms | 28.57ms |
+| comp_0to1 | 7.15ms | 2.29ms | 19.03ms | 6.91ms | 24.49ms |
+| comp_1to1 | 14.55ms | 7.56ms | 21.02ms | 7.22ms | 24.45ms |
+| comp_2to1 | 1.26ms | 5.37ms | 12.24ms | 4.73ms | 15.40ms |
+| comp_4to1 | 6.64ms | 708μs | 5.05ms | 3.67ms | 8.50ms |
+| comp_1000to1 | 3μs | 2μs | 1.83ms | 2μs | 20μs |
+| comp_1to2 | 2.69ms | 4.93ms | 18.40ms | 8.91ms | 22.75ms |
+| comp_1to4 | 15.33ms | 5.92ms | 10.57ms | 3.29ms | 21.28ms |
+| comp_1to8 | 3.04ms | 2.29ms | 12.32ms | 3.63ms | 21.53ms |
+| comp_1to1000 | 2.29ms | 1.60ms | 9.45ms | 2.00ms | 20.00ms |
+| update_1to1 | 3.93ms | 1.72ms | 19.47ms | 4.44ms | 2.76ms |
+| update_2to1 | 2.05ms | 944μs | 9.60ms | 2.09ms | 1.38ms |
+| update_4to1 | 1.12ms | 463μs | 4.73ms | 1.02ms | 688μs |
+| update_1000to1 | 10μs | 5μs | 53μs | 10μs | 7μs |
+| update_1to2 | 2.02ms | 961μs | 9.63ms | 2.18ms | 1.38ms |
+| update_1to4 | 1.09ms | 449μs | 4.73ms | 1.10ms | 706μs |
+| update_1to1000 | 18μs | 22μs | 111μs | 20μs | 199μs |
+| cellx1000 | 4.15ms | 3.88ms | 76.79ms | 4.17ms | 3.10ms |
+| cellx2500 | 11.12ms | 10.95ms | 233.70ms | 14.08ms | 10.40ms |
+| cellx5000 | 32.84ms | 24.43ms | 494.19ms | 34.21ms | 28.76ms |
+| 10x5 - 2 sources - read 20.0% (simple) | 226.04ms | 147.56ms | 1.3123s (half) | 248.19ms | 150.16ms |
+| 10x10 - 6 sources - dynamic - read 20.0% (dynamic) | 120.41ms | 101.22ms | 1.2561s (half) | 125.76ms | 106.03ms |
+| 1000x12 - 4 sources - dynamic (large) | 1.9637s | 149.96ms | 2.0363s (half) | 2.5521s | 189.29ms |
+| 1000x5 - 25 sources (wide dense) | 1.4174s | 243.63ms | 2.6086s (half) | 2.2777s | 260.22ms |
+| 5x500 - 3 sources (deep) | 103.92ms | 120.20ms | 1.0028s (half) | 108.09ms | 123.78ms |
+| 100x15 - 6 sources - dynamic (very dynamic) | 217.49ms | 143.59ms | 1.4209s (half) | 251.07ms | 143.71ms |
+<!-- Benchmark Table End -->

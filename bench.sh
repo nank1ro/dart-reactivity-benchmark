@@ -5,7 +5,6 @@ while IFS= read -r -d $'\0' framework_file; do
   frameworks+=("$framework")
 done < <(find ./bin -maxdepth 1 -type f -name "*.dart" -print0)
 
-
 if [ ${#frameworks[@]} -eq 0 ]; then
   echo "Error: No Dart files found in ./bin directory."
   exit 1
@@ -21,7 +20,7 @@ do
 
   # compile to native
   echo "Compiling $framework to native..."
-  dart compile exe "bin/$framework.dart" -o "bin/$framework" --enable-asserts || exit 1
+  dart compile exe "bin/$framework.dart" -o "bin/$framework" || exit 1
 
   { ./bin/$framework | tee  bench/$framework.md; } 2>&1;
   rm "bin/$framework"
