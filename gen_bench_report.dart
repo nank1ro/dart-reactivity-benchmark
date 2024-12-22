@@ -62,6 +62,7 @@ Future<void> main() async {
 
   // The rank algorithm see https://github.com/medz/dart-reactivity-benchmark#ranking-algorithm
   final scores = <String, (double, int)>{};
+  final failCoefficients = <String, double>{};
   for (final MapEntry(value: group) in reports.entries) {
     final fastest = group.values
         .where((e) => failCoefficient(e.stateCaseName) >= 0.5)
@@ -76,14 +77,17 @@ Future<void> main() async {
       final (prevScore, prevMicroseconds) =
           scores[framework] ??= (0, totalMicroseconds);
       scores[framework] = (prevScore + score, prevMicroseconds + microseconds);
+      failCoefficients[framework] =
+          (failCoefficients[framework] ?? 0) + (1 - coefficient);
     }
   }
 
   final sortedScores = scores.entries.toList()
     ..sort((a, b) => b.value.$1.compareTo(a.value.$1));
   final rankTable = StringBuffer();
-  rankTable.writeln('| Rank | Framework | Score | Total Time |');
-  rankTable.writeln('|---|---|---|---|');
+  rankTable
+      .writeln('| Rank | Framework | Score | Total Time | Fail Coefficients |');
+  rankTable.writeln('|---|---|---|---|---|');
   for (final (rank, MapEntry(key: framework, value: (score, time)))
       in sortedScores.indexed) {
     final displayRank = switch (rank) {
@@ -100,7 +104,8 @@ Future<void> main() async {
       displayRank,
       displayFramework,
       score.toStringAsFixed(2),
-      formatMicroseconds(time)
+      formatMicroseconds(time),
+      failCoefficients[framework] ?? 0
     ], ' | ');
     rankTable.writeln(' |');
   }
