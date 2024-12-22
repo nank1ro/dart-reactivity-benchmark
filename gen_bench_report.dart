@@ -63,14 +63,15 @@ Future<void> main() async {
   // The rank algorithm see https://github.com/medz/dart-reactivity-benchmark#ranking-algorithm
   final scores = <String, double>{};
   for (final MapEntry(value: group) in reports.entries) {
-    final minMicroseconds = group.values
+    final fastest = group.values
+        .where((e) => failCoefficient(e.stateCaseName) >= 0.5)
         .map((e) => e.microseconds)
         .reduce((value, next) => value < next ? value : next);
 
     for (final MapEntry(key: framework, value: (:stateCaseName, :microseconds))
         in group.entries) {
       final coefficient = failCoefficient(stateCaseName);
-      double score = minMicroseconds / microseconds * coefficient;
+      double score = fastest / microseconds * coefficient;
       scores[framework] = (scores[framework] ??= 0) + score;
     }
   }
