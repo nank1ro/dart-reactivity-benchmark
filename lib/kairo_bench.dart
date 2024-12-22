@@ -44,7 +44,7 @@ Future<void> kairoBench(ReactiveFramework framework) async {
 
     logPerfResult(PerfRowStrings(
       framework: framework.name,
-      test: 'kairo $name (${state.name})',
+      test: '$name (${state.name})',
       time: timingResult.timing.time.toString(),
     ));
   }
