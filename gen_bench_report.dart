@@ -95,8 +95,14 @@ Future<void> main() async {
     final frameworkLink = 'https://pub.dev/packages/$framework';
     final displayFramework = '[$framework]($frameworkLink)';
 
-    rankTable.writeln(
-        '| $displayRank | $displayFramework | ${score.toStringAsFixed(2)} | | ${formatMicroseconds(time)}');
+    rankTable.write('| ');
+    rankTable.writeAll([
+      displayRank,
+      displayFramework,
+      score.toStringAsFixed(2),
+      formatMicroseconds(time)
+    ], ' | ');
+    rankTable.writeln(' |');
   }
 
   final rankStart = readmeContent.indexOf('<!-- Rank Table -->') + 20;
@@ -146,7 +152,7 @@ String formatMicroseconds(int microseconds) {
     return '${(microseconds / 1000).toStringAsFixed(2)}ms';
   }
 
-  return '${(microseconds / 1000000).toStringAsFixed(4)}s';
+  return '${(microseconds / 1000000).toStringAsFixed(2)}s';
 }
 
 String trimTestCaseName(String name) {
