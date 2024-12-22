@@ -1,18 +1,6 @@
-# Dart Reactivity Benchmark
+# Dart Reactivity Benchmark [![Pub Version](https://img.shields.io/pub/v/reactivity_benchmark)](https://pub.dev/packages/reactivity_benchmark)
 
 Benchmark comparing different standalone Dart reactivity/signals frameworks.
-
-## Usage
-
-Dart VM
-```bash
-dart run bin/[framework_name].dart
-```
-
-Run all benchamrks
-```bash
-bash bench.sh
-```
 
 ## Score Ranking
 
@@ -80,3 +68,38 @@ bash bench.sh
 > [!TIP]
 > - `(fail)`: Test case failed
 > - `(half)`: Half of the test cases failed
+
+## Integrate into your project
+
+You can easily integrate Dart reactivity benchmark into your project to provide benchmarking.
+
+### Install it
+
+```bash
+dart pub add dev:reactivity_benchmark
+```
+
+### Writing Tests
+
+```dart
+class YourReactiveFramework extends ReactiveFramework {
+  ...
+}
+
+void main() {
+  final framework = YourReactiveFramework();
+  runFrameworkBench(framework);
+}
+```
+
+## Local run benchmarks
+
+Dart VM
+```bash
+dart run frameworks/[framework_name].dart
+```
+
+Run all benchamrks
+```bash
+bash bench.sh
+```
