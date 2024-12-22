@@ -9,7 +9,7 @@ final class _PreactSignalsReactiveFramework extends ReactiveFramework {
 
   @override
   Computed<T> computed<T>(T Function() fn) {
-    final inner = preact_signals.computed(fn);
+    final inner = preact_signals.computed(() => fn());
     return createComputed(() => inner.value);
   }
 

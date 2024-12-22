@@ -9,7 +9,7 @@ final class MobxFramework extends ReactiveFramework {
 
   @override
   Computed<T> computed<T>(T Function() fn) {
-    final computed = mobx.Computed(fn);
+    final computed = mobx.Computed(() => fn());
     return createComputed(() => computed.value);
   }
 

@@ -9,8 +9,8 @@ final class _SolidartReactiveFramework extends ReactiveFramework {
 
   @override
   Computed<T> computed<T>(T Function() fn) {
-    final inner = solidart.Computed(fn);
-    return createComputed(() => inner());
+    final inner = solidart.Computed(() => fn());
+    return createComputed(inner.call);
   }
 
   @override
@@ -20,8 +20,8 @@ final class _SolidartReactiveFramework extends ReactiveFramework {
 
   @override
   Signal<T> signal<T>(T value) {
-    final solidart.Signal<T>(:call, :set) = solidart.Signal(value);
-    return createSignal(call, set);
+    final inner = solidart.Signal(value);
+    return createSignal(inner.call, inner.set);
   }
 
   @override

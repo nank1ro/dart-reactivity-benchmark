@@ -20,8 +20,8 @@ final class _AlientSignalsReactiveFramework extends ReactiveFramework {
 
   @override
   Signal<T> signal<T>(T value) {
-    final alien_signals.Signal<T>(:get, :set) = alien_signals.signal(value);
-    return createSignal(get, set);
+    final inner = alien_signals.signal(value);
+    return createSignal(inner.get, inner.set);
   }
 
   @override
