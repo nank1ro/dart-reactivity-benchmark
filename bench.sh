@@ -14,12 +14,12 @@ for framework in "${frameworks[@]}"
 do
   echo "==================== $framework ===================="
   echo "$(date)"
-  echo "Running benchmark for $framework..."
 
   # compile to native
   echo "Compiling $framework to native..."
   dart compile exe "bin/$framework.dart" -o "bin/$framework" || exit 1
 
+  echo "Running benchmark for $framework..."
   { ./bin/$framework | tee  bench/$framework.md; } 2>&1;
   rm "bin/$framework"
   if [ $? -ne 0 ]; then
