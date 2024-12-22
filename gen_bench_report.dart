@@ -61,27 +61,30 @@ Future<void> main() async {
       testCaseStart, testCaseEnd, testCaseTable.toString());
 
   // The rank algorithm see https://github.com/medz/dart-reactivity-benchmark#ranking-algorithm
-  final scores = <String, double>{};
+  final scores = <String, (double, int)>{};
   for (final MapEntry(value: group) in reports.entries) {
     final fastest = group.values
         .where((e) => failCoefficient(e.stateCaseName) >= 0.5)
         .map((e) => e.microseconds)
         .reduce((value, next) => value < next ? value : next);
+    int totalMicroseconds = 0;
 
     for (final MapEntry(key: framework, value: (:stateCaseName, :microseconds))
         in group.entries) {
       final coefficient = failCoefficient(stateCaseName);
-      double score = fastest / microseconds * coefficient;
-      scores[framework] = (scores[framework] ??= 0) + score;
+      final score = fastest / microseconds * coefficient;
+      final (prevScore, prevMicroseconds) =
+          scores[framework] ??= (0, totalMicroseconds);
+      scores[framework] = (prevScore + score, prevMicroseconds + microseconds);
     }
   }
 
   final sortedScores = scores.entries.toList()
-    ..sort((a, b) => b.value.compareTo(a.value));
+    ..sort((a, b) => b.value.$1.compareTo(a.value.$1));
   final rankTable = StringBuffer();
-  rankTable.writeln('| Rank | Framework | Score |');
-  rankTable.writeln('|---|---|---|');
-  for (final (rank, MapEntry(key: framework, value: score))
+  rankTable.writeln('| Rank | Framework | Score | Total Time |');
+  rankTable.writeln('|---|---|---|---|');
+  for (final (rank, MapEntry(key: framework, value: (score, time)))
       in sortedScores.indexed) {
     final displayRank = switch (rank) {
       0 => '🥇',
@@ -93,7 +96,7 @@ Future<void> main() async {
     final displayFramework = '[$framework]($frameworkLink)';
 
     rankTable.writeln(
-        '| $displayRank | $displayFramework | ${score.toStringAsFixed(2)} |');
+        '| $displayRank | $displayFramework | ${score.toStringAsFixed(2)} | | ${formatMicroseconds(time)}');
   }
 
   final rankStart = readmeContent.indexOf('<!-- Rank Table -->') + 20;
