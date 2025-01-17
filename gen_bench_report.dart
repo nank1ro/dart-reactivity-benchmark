@@ -1,12 +1,59 @@
 import 'dart:io';
+import 'dart:math' show pow;
 
-final benchReportDir = Directory('bench');
-final readme = File('README.md');
-String readmeContent = readme.readAsStringSync();
+Future<void> main() async {
+  final reports = readAllBenchmarkReports();
+
+  // 1. Generate detailed test case table
+  generateTestCaseTable(reports);
+
+  // 2. Calculate overall scores
+  final scores = calculateScores(reports);
+
+  // 3. Generate ranking report
+  generateRankingReport(scores);
+}
+
+class ScoreResult {
+  final String framework;
+  final double overallScore; // Overall score
+  final double successRate; // Success rate
+  final int totalTests; // Total test count
+  final int passedTests; // Passed test count
+  final Map<String, TestMetric>
+      testMetrics; // Detailed metrics for each test case
+  final Duration totalTime; // Total execution time
+
+  ScoreResult({
+    required this.framework,
+    required this.overallScore,
+    required this.successRate,
+    required this.totalTests,
+    required this.passedTests,
+    required this.testMetrics,
+    required this.totalTime,
+  });
+}
+
+class TestMetric {
+  final int microseconds;
+  final double normalizedScore; // Normalized score
+  final double coefficient; // Pass coefficient
+  final String status; // Test status (pass/partial/fail)
+
+  TestMetric({
+    required this.microseconds,
+    required this.normalizedScore,
+    required this.coefficient,
+    required this.status,
+  });
+}
 
 Map<String, Map<String, ({String stateCaseName, int microseconds})>>
     readAllBenchmarkReports() {
   final reports = <String, Map<String, int>>{};
+  final benchReportDir = Directory('bench');
+
   for (final file in benchReportDir.listSync()) {
     if (file is! File) continue;
     final lines = file.readAsLinesSync().skip(2);
@@ -32,8 +79,9 @@ Map<String, Map<String, ({String stateCaseName, int microseconds})>>
   return testCases;
 }
 
-Future<void> main() async {
-  final reports = readAllBenchmarkReports();
+void generateTestCaseTable(
+    Map<String, Map<String, ({String stateCaseName, int microseconds})>>
+        reports) {
   final testCaseTable = StringBuffer();
 
   testCaseTable.write('| Test Case | ');
@@ -49,115 +97,72 @@ Future<void> main() async {
     testCaseTable.write('| $testCase | ');
     testCaseTable.writeAll([
       for (final (:microseconds, :stateCaseName) in group.values)
-        displayTime(microseconds, stateCaseName),
+        formatTestResult(microseconds, stateCaseName),
     ], ' | ');
     testCaseTable.writeln(' |');
   }
 
-  // Replace the old table with the new one
-  final testCaseStart = readmeContent.indexOf('<!-- Benchmark Table -->') + 25;
-  final testCaseEnd = readmeContent.indexOf('<!-- Benchmark Table End -->');
-  readmeContent = readmeContent.replaceRange(
-      testCaseStart, testCaseEnd, testCaseTable.toString());
-
-  // The rank algorithm see https://github.com/medz/dart-reactivity-benchmark#ranking-algorithm
-  final scores = <String, (double, int)>{};
-  final failCoefficients = <String, double>{};
-  for (final MapEntry(value: group) in reports.entries) {
-    final fastest = group.values
-        .where((e) => failCoefficient(e.stateCaseName) >= 0.5)
-        .map((e) => e.microseconds)
-        .reduce((value, next) => value < next ? value : next);
-    int totalMicroseconds = 0;
-
-    for (final MapEntry(key: framework, value: (:stateCaseName, :microseconds))
-        in group.entries) {
-      final coefficient = failCoefficient(stateCaseName);
-      final score = fastest / microseconds * coefficient;
-      final (prevScore, prevMicroseconds) =
-          scores[framework] ??= (0, totalMicroseconds);
-      scores[framework] = (prevScore + score, prevMicroseconds + microseconds);
-      failCoefficients[framework] =
-          (failCoefficients[framework] ?? 0) + (1 - coefficient);
-    }
-  }
-
-  final sortedScores = scores.entries.toList()
-    ..sort((a, b) => b.value.$1.compareTo(a.value.$1));
-  final rankTable = StringBuffer();
-  rankTable
-      .writeln('| Rank | Framework | Score | Total Time | Fail Coefficients |');
-  rankTable.writeln('|---|---|---|---|---|');
-  for (final (rank, MapEntry(key: framework, value: (score, time)))
-      in sortedScores.indexed) {
-    final displayRank = switch (rank) {
-      0 => '🥇',
-      1 => '🥈',
-      2 => '🥉',
-      _ => rank + 1,
-    };
-    final frameworkLink = 'https://pub.dev/packages/$framework';
-    final displayFramework = '[$framework]($frameworkLink)';
-
-    rankTable.write('| ');
-    rankTable.writeAll([
-      displayRank,
-      displayFramework,
-      score.toStringAsFixed(2),
-      formatMicroseconds(time),
-      failCoefficients[framework] ?? 0
-    ], ' | ');
-    rankTable.writeln(' |');
-  }
-
-  final rankStart = readmeContent.indexOf('<!-- Rank Table -->') + 20;
-  final rankEnd = readmeContent.indexOf('<!-- Rank Table End -->');
-
-  readmeContent =
-      readmeContent.replaceRange(rankStart, rankEnd, rankTable.toString());
-
-  readme.writeAsStringSync(readmeContent);
+  updateReadme(testCaseTable.toString(), 'test-case');
 }
 
-double failCoefficient(String testCase) {
-  if (testCase.contains('(fail)')) {
-    return 0;
-  }
+int calculateBaseline(
+    Map<String, ({String stateCaseName, int microseconds})> group) {
+  return group.values
+      .where((test) => calculateCoefficient(test.stateCaseName) >= 0.5)
+      .map((test) => test.microseconds)
+      .reduce((min, time) => time < min ? time : min);
+}
 
-  double coefficient = 1;
-  if (testCase.contains('sum: fail')) {
-    coefficient /= 2;
-  }
-  if (testCase.contains('count: fail')) {
-    coefficient /= 2;
-  }
+double calculateCoefficient(String testCase) {
+  if (testCase.contains('(fail)')) return 0.0;
+
+  double coefficient = 1.0;
+  if (testCase.contains('sum: fail')) coefficient *= 0.5;
+  if (testCase.contains('count: fail')) coefficient *= 0.5;
   if (testCase.contains('sum: fail') && testCase.contains('count: fail')) {
-    coefficient = 0;
+    coefficient = 0.0;
   }
 
   return coefficient;
 }
 
-String displayTime(int microseconds, String testCase) {
-  String value = formatMicroseconds(microseconds);
-  final coefficient = failCoefficient(testCase);
-  if (coefficient == 0) {
-    return '$value (fail)';
-  } else if (coefficient == 0.5) {
-    return '$value (half)';
-  }
-
-  return value;
+String getTestStatus(double coefficient) {
+  if (coefficient >= 1.0) return 'pass';
+  if (coefficient > 0.0) return 'partial';
+  return 'fail';
 }
 
-String formatMicroseconds(int microseconds) {
+String formatDuration(Duration duration) {
+  final microseconds = duration.inMicroseconds;
   if (microseconds < 1000) {
     return '$microsecondsμs';
   } else if (microseconds < 1000000) {
     return '${(microseconds / 1000).toStringAsFixed(2)}ms';
   }
-
   return '${(microseconds / 1000000).toStringAsFixed(2)}s';
+}
+
+String formatTestResult(int microseconds, String testCase) {
+  final coefficient = calculateCoefficient(testCase);
+  final time = formatDuration(Duration(microseconds: microseconds));
+
+  if (coefficient == 0.0) return '$time (fail)';
+  if (coefficient == 0.5) return '$time (partial)';
+  return time;
+}
+
+void updateReadme(String content, String section) {
+  final readme = File('README.md');
+  final readmeContent = readme.readAsStringSync();
+
+  final sectionStart = readmeContent.indexOf('<!-- $section start -->') +
+      '<!-- $section start -->'.length;
+  final sectionEnd = readmeContent.indexOf('<!-- $section end -->');
+
+  final newContent =
+      readmeContent.replaceRange(sectionStart, sectionEnd, '\n$content\n');
+
+  readme.writeAsStringSync(newContent);
 }
 
 String trimTestCaseName(String name) {
@@ -179,4 +184,123 @@ String trimTestCaseName(String name) {
   }
 
   return name;
+}
+
+Map<String, ScoreResult> calculateScores(
+    Map<String, Map<String, ({String stateCaseName, int microseconds})>>
+        reports) {
+  final scores = <String, ScoreResult>{};
+  final testWeights = defineTestWeights(); // Define test weights
+
+  for (final framework in reports.values.first.keys) {
+    var testMetrics = <String, TestMetric>{};
+    var totalTests = 0;
+    var passedTests = 0;
+    var totalTime = Duration.zero;
+
+    // Score each test case
+    for (final MapEntry(key: testCase, value: group) in reports.entries) {
+      final test = group[framework]!;
+      totalTests++;
+
+      // 1. Calculate baseline time (fastest passing test time)
+      final baseline = calculateBaseline(group);
+
+      // 2. Calculate pass coefficient
+      final coefficient = calculateCoefficient(test.stateCaseName);
+
+      // 3. Calculate normalized score
+      final normalizedScore = calculateNormalizedScore(test.microseconds,
+          baseline, coefficient, testWeights[testCase] ?? 1.0);
+
+      // 4. Record test metrics
+      testMetrics[testCase] = TestMetric(
+        microseconds: test.microseconds,
+        normalizedScore: normalizedScore,
+        coefficient: coefficient,
+        status: getTestStatus(coefficient),
+      );
+
+      if (coefficient >= 1.0) passedTests++;
+      totalTime += Duration(microseconds: test.microseconds);
+    }
+
+    // 5. Calculate overall score
+    final overallScore = calculateOverallScore(testMetrics);
+    final successRate = passedTests / totalTests;
+
+    scores[framework] = ScoreResult(
+      framework: framework,
+      overallScore: overallScore,
+      successRate: successRate,
+      totalTests: totalTests,
+      passedTests: passedTests,
+      testMetrics: testMetrics,
+      totalTime: totalTime,
+    );
+  }
+
+  return scores;
+}
+
+double calculateOverallScore(Map<String, TestMetric> metrics) {
+  // Calculate final score using geometric mean
+  final scores = metrics.values.map((m) => m.normalizedScore).toList();
+  return geometricMean(scores);
+}
+
+double geometricMean(List<double> values) {
+  return pow(values.reduce((a, b) => a * b), 1 / values.length).toDouble();
+}
+
+double calculateNormalizedScore(
+  int microseconds,
+  int baseline,
+  double coefficient,
+  double weight,
+) {
+  // Base score = baseline time / actual time
+  final baseScore = baseline / microseconds;
+  // Normalized score = base score * pass coefficient * test weight
+  return baseScore * coefficient * weight;
+}
+
+Map<String, double> defineTestWeights() {
+  // Define different test case weights
+  return {
+    'Simple Counter': 1.0,
+    'Computed Properties': 1.2,
+    'Collection Operations': 1.3,
+    'Deep Update': 1.4,
+    'Complex Update': 1.5,
+  };
+}
+
+void generateRankingReport(Map<String, ScoreResult> scores) {
+  final rankTable = StringBuffer();
+  rankTable
+      .writeln('| Rank | Framework | Score | Success Rate | Tests | Time |');
+  rankTable
+      .writeln('|------|-----------|-------|--------------|-------|------|');
+
+  final sortedScores = scores.values.toList()
+    ..sort((a, b) => b.overallScore.compareTo(a.overallScore));
+
+  for (final (index, score) in sortedScores.indexed) {
+    final rank = switch (index) {
+      0 => '🥇',
+      1 => '🥈',
+      2 => '🥉',
+      _ => '${index + 1}',
+    };
+
+    rankTable.writeln('| $rank | ${score.framework} | '
+        '${score.overallScore.toStringAsFixed(2)} | '
+        '${(score.successRate * 100).toStringAsFixed(1)}% | '
+        '${score.passedTests}/${score.totalTests} | '
+        '${formatDuration(score.totalTime)} |');
+  }
+
+  // Update README
+  updateReadme(rankTable.toString(), 'ranking');
 }
