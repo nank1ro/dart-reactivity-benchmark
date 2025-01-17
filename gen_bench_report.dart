@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'dart:math' show pow;
+import 'dart:math' show pow, sqrt;
 
 Future<void> main() async {
   final reports = readAllBenchmarkReports();
@@ -16,13 +16,12 @@ Future<void> main() async {
 
 class ScoreResult {
   final String framework;
-  final double overallScore; // Overall score
-  final double successRate; // Success rate
-  final int totalTests; // Total test count
-  final int passedTests; // Passed test count
-  final Map<String, TestMetric>
-      testMetrics; // Detailed metrics for each test case
-  final Duration totalTime; // Total execution time
+  final double overallScore;
+  final double successRate;
+  final int totalTests;
+  final int passedTests;
+  final Map<String, TestMetric> testMetrics;
+  final Duration totalTime;
 
   ScoreResult({
     required this.framework,
@@ -37,9 +36,9 @@ class ScoreResult {
 
 class TestMetric {
   final int microseconds;
-  final double normalizedScore; // Normalized score
-  final double coefficient; // Pass coefficient
-  final String status; // Test status (pass/partial/fail)
+  final double normalizedScore;
+  final double coefficient;
+  final String status;
 
   TestMetric({
     required this.microseconds,
@@ -190,30 +189,38 @@ Map<String, ScoreResult> calculateScores(
     Map<String, Map<String, ({String stateCaseName, int microseconds})>>
         reports) {
   final scores = <String, ScoreResult>{};
-  final testWeights = defineTestWeights(); // Define test weights
+  final testWeights = defineTestWeights();
+  Duration? fastestTotalTime;
 
+  // First pass to find fastest total time
+  for (final framework in reports.values.first.keys) {
+    var totalTime = Duration.zero;
+    for (final group in reports.values) {
+      final test = group[framework]!;
+      totalTime += Duration(microseconds: test.microseconds);
+    }
+
+    if (fastestTotalTime == null || totalTime < fastestTotalTime) {
+      fastestTotalTime = totalTime;
+    }
+  }
+
+  // Second pass to calculate scores
   for (final framework in reports.values.first.keys) {
     var testMetrics = <String, TestMetric>{};
     var totalTests = 0;
     var passedTests = 0;
     var totalTime = Duration.zero;
 
-    // Score each test case
     for (final MapEntry(key: testCase, value: group) in reports.entries) {
       final test = group[framework]!;
       totalTests++;
 
-      // 1. Calculate baseline time (fastest passing test time)
       final baseline = calculateBaseline(group);
-
-      // 2. Calculate pass coefficient
       final coefficient = calculateCoefficient(test.stateCaseName);
-
-      // 3. Calculate normalized score
       final normalizedScore = calculateNormalizedScore(test.microseconds,
           baseline, coefficient, testWeights[testCase] ?? 1.0);
 
-      // 4. Record test metrics
       testMetrics[testCase] = TestMetric(
         microseconds: test.microseconds,
         normalizedScore: normalizedScore,
@@ -225,8 +232,8 @@ Map<String, ScoreResult> calculateScores(
       totalTime += Duration(microseconds: test.microseconds);
     }
 
-    // 5. Calculate overall score
-    final overallScore = calculateOverallScore(testMetrics);
+    final overallScore =
+        calculateOverallScore(testMetrics, totalTime, fastestTotalTime!);
     final successRate = passedTests / totalTests;
 
     scores[framework] = ScoreResult(
@@ -243,10 +250,12 @@ Map<String, ScoreResult> calculateScores(
   return scores;
 }
 
-double calculateOverallScore(Map<String, TestMetric> metrics) {
-  // Calculate final score using geometric mean
-  final scores = metrics.values.map((m) => m.normalizedScore).toList();
-  return geometricMean(scores);
+double calculateOverallScore(
+    Map<String, TestMetric> metrics, Duration totalTime, Duration fastestTime) {
+  final baseScore =
+      geometricMean(metrics.values.map((m) => m.normalizedScore).toList());
+  final timeFactor = fastestTime.inMicroseconds / totalTime.inMicroseconds;
+  return baseScore * sqrt(timeFactor);
 }
 
 double geometricMean(List<double> values) {
@@ -259,14 +268,11 @@ double calculateNormalizedScore(
   double coefficient,
   double weight,
 ) {
-  // Base score = baseline time / actual time
   final baseScore = baseline / microseconds;
-  // Normalized score = base score * pass coefficient * test weight
   return baseScore * coefficient * weight;
 }
 
 Map<String, double> defineTestWeights() {
-  // Define different test case weights
   return {
     'Simple Counter': 1.0,
     'Computed Properties': 1.2,
@@ -301,6 +307,5 @@ void generateRankingReport(Map<String, ScoreResult> scores) {
         '${formatDuration(score.totalTime)} |');
   }
 
-  // Update README
   updateReadme(rankTable.toString(), 'ranking');
 }

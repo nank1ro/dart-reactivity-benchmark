@@ -7,11 +7,11 @@ Benchmark comparing different standalone Dart reactivity/signals frameworks.
 <!-- ranking start -->
 | Rank | Framework | Score | Success Rate | Tests | Time |
 |------|-----------|-------|--------------|-------|------|
-| 🥇 | alien_signals | 0.74 | 100.0% | 35/35 | 4.09s |
-| 🥈 | signals | 0.55 | 100.0% | 35/35 | 10.98s |
-| 🥉 | preact_signals | 0.53 | 100.0% | 35/35 | 9.76s |
-| 4 | mobx | 0.15 | 100.0% | 35/35 | 27.11s |
-| 5 | solidart | 0.09 | 82.9% | 29/35 | 39.84s |
+| 🥇 | alien_signals | 0.69 | 100.0% | 35/35 | 4.09s |
+| 🥈 | preact_signals | 0.32 | 100.0% | 35/35 | 9.76s |
+| 🥉 | signals | 0.31 | 100.0% | 35/35 | 10.98s |
+| 4 | mobx | 0.06 | 100.0% | 35/35 | 27.11s |
+| 5 | solidart | 0.03 | 82.9% | 29/35 | 39.84s |
 | 6 | state_beacon | 0.00 | 77.1% | 27/35 | 3.54s |
 
 <!-- ranking end -->
@@ -21,26 +21,24 @@ Benchmark comparing different standalone Dart reactivity/signals frameworks.
 >
 > The ranking system evaluates frameworks based on multiple factors:
 >
-> 1. **Performance Score**
+> 1. **Test Case Scores**
 >    - For each test case, the fastest passing implementation (with coefficient ≥ 0.5) serves as the baseline
 >    - Individual test scores are calculated as: `(baseline_time / actual_time) * coefficient * weight`
->    - Test weights vary based on complexity and importance:
->      - Simple operations: 1.0
->      - Computed properties: 1.2
->      - Collection operations: 1.3
->      - Deep updates: 1.4
->      - Complex updates: 1.5
+>    - Test case weights are assigned based on operation types:
+>      - Regular operations: 1.0
+>      - Extended operations: 1.2-1.5
 >
-> 2. **Success Rate**
+> 2. **Success Coefficient**
 >    - Full pass (coefficient = 1.0): Test completely successful
->    - Partial pass (0 < coefficient < 1.0): Some aspects failed
->    - Fail (coefficient = 0): Test completely failed
+>    - Partial pass (coefficient = 0.5): Part of the test failed
+>    - Complete fail (coefficient = 0): Test failed entirely
 >
-> 3. **Final Score**
->    - Uses geometric mean of all test scores to balance different test magnitudes
->    - Final score = ∛(performance_score * success_rate * total_tests)
+> 3. **Final Score Calculation**
+>    - Base score: Geometric mean of all weighted test case scores
+>    - Time factor: sqrt(fastest_total_time / framework_total_time)
+>    - Final score = base_score * time_factor
 >
-> The ranking reflects both performance and reliability, ensuring frameworks are evaluated on both speed and correctness.
+> This scoring system balances individual test performance with overall execution time while accounting for test reliability.
 
 ## Benchmark results of each framework
 
