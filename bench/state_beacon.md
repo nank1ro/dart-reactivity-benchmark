@@ -1,37 +1,37 @@
 | Framework | Test Case | Time (μs) |
 | --- | --- | --- |
-| state_beacon | avoidablePropagation (fail) | 166194 |
-| state_beacon | broadPropagation (fail) | 6584 |
-| state_beacon | deepPropagation (fail) | 143458 |
-| state_beacon | diamond (fail) | 209344 |
-| state_beacon | mux (fail) | 195491 |
-| state_beacon | repeatedObservers (fail) | 54187 |
-| state_beacon | triangle (fail) | 78375 |
-| state_beacon | unstable (fail) | 342573 |
-| state_beacon | molBench | 930 |
-| state_beacon | create_signals | 63677 |
-| state_beacon | comp_0to1 | 56706 |
-| state_beacon | comp_1to1 | 53094 |
-| state_beacon | comp_2to1 | 37620 |
-| state_beacon | comp_4to1 | 19315 |
-| state_beacon | comp_1000to1 | 49 |
-| state_beacon | comp_1to2 | 48028 |
-| state_beacon | comp_1to4 | 43713 |
-| state_beacon | comp_1to8 | 43963 |
-| state_beacon | comp_1to1000 | 40390 |
-| state_beacon | update_1to1 | 11153 |
-| state_beacon | update_2to1 | 3382 |
-| state_beacon | update_4to1 | 2663 |
+| state_beacon | avoidablePropagation (fail) | 169870 |
+| state_beacon | broadPropagation (fail) | 6870 |
+| state_beacon | deepPropagation (fail) | 138346 |
+| state_beacon | diamond (fail) | 190457 |
+| state_beacon | mux (fail) | 193886 |
+| state_beacon | repeatedObservers (fail) | 54008 |
+| state_beacon | triangle (fail) | 79400 |
+| state_beacon | unstable (fail) | 336422 |
+| state_beacon | molBench | 893 |
+| state_beacon | create_signals | 73456 |
+| state_beacon | comp_0to1 | 54184 |
+| state_beacon | comp_1to1 | 53584 |
+| state_beacon | comp_2to1 | 39413 |
+| state_beacon | comp_4to1 | 17630 |
+| state_beacon | comp_1000to1 | 79 |
+| state_beacon | comp_1to2 | 46687 |
+| state_beacon | comp_1to4 | 43756 |
+| state_beacon | comp_1to8 | 44610 |
+| state_beacon | comp_1to1000 | 40561 |
+| state_beacon | update_1to1 | 7992 |
+| state_beacon | update_2to1 | 2931 |
+| state_beacon | update_4to1 | 2414 |
 | state_beacon | update_1000to1 | 15 |
-| state_beacon | update_1to2 | 4527 |
-| state_beacon | update_1to4 | 1452 |
-| state_beacon | update_1to1000 | 411 |
-| state_beacon | cellx1000 (first: pass, last: pass) | 5236 |
-| state_beacon | cellx2500 (first: pass, last: pass) | 21114 |
-| state_beacon | cellx5000 (first: pass, last: pass) | 64265 |
-| state_beacon | 10x5 - 2 sources - read 20.0% (simple, sum: pass, count: pass) | 274750 |
-| state_beacon | 10x10 - 6 sources - dynamic - read 20.0% (dynamic, sum: pass, count: pass) | 211951 |
-| state_beacon | 1000x12 - 4 sources - dynamic (large, sum: pass, count: pass) | 346710 |
-| state_beacon | 1000x5 - 25 sources (wide dense, sum: pass, count: pass) | 524139 |
-| state_beacon | 5x500 - 3 sources (deep, sum: pass, count: pass) | 232327 |
-| state_beacon | 100x15 - 6 sources - dynamic (very dynamic, sum: pass, count: pass) | 265452 |
+| state_beacon | update_1to2 | 3303 |
+| state_beacon | update_1to4 | 1493 |
+| state_beacon | update_1to1000 | 412 |
+| state_beacon | cellx1000 (first: pass, last: pass) | 5625 |
+| state_beacon | cellx2500 (first: pass, last: pass) | 22202 |
+| state_beacon | cellx5000 (first: pass, last: pass) | 76553 |
+| state_beacon | 10x5 - 2 sources - read 20.0% (simple, sum: pass, count: pass) | 252304 |
+| state_beacon | 10x10 - 6 sources - dynamic - read 20.0% (dynamic, sum: pass, count: pass) | 202851 |
+| state_beacon | 1000x12 - 4 sources - dynamic (large, sum: pass, count: pass) | 355203 |
+| state_beacon | 1000x5 - 25 sources (wide dense, sum: pass, count: pass) | 506209 |
+| state_beacon | 5x500 - 3 sources (deep, sum: pass, count: pass) | 233822 |
+| state_beacon | 100x15 - 6 sources - dynamic (very dynamic, sum: pass, count: pass) | 269963 |
