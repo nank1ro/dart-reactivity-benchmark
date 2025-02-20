@@ -1,37 +1,37 @@
 | Framework | Test Case | Time (μs) |
 | --- | --- | --- |
-| solidart | avoidablePropagation (success) | 2187720 |
-| solidart | broadPropagation (success) | 5321262 |
-| solidart | deepPropagation (success) | 1993341 |
-| solidart | diamond (success) | 3445497 |
-| solidart | mux (success) | 2014615 |
-| solidart | repeatedObservers (success) | 208983 |
-| solidart | triangle (success) | 1125819 |
-| solidart | unstable (success) | 345380 |
-| solidart | molBench | 1707089 |
-| solidart | create_signals | 80025 |
-| solidart | comp_0to1 | 33638 |
-| solidart | comp_1to1 | 48866 |
-| solidart | comp_2to1 | 32018 |
-| solidart | comp_4to1 | 12227 |
-| solidart | comp_1000to1 | 1994 |
-| solidart | comp_1to2 | 24274 |
-| solidart | comp_1to4 | 24668 |
-| solidart | comp_1to8 | 19210 |
-| solidart | comp_1to1000 | 17602 |
-| solidart | update_1to1 | 47405 |
-| solidart | update_2to1 | 26368 |
-| solidart | update_4to1 | 11707 |
-| solidart | update_1000to1 | 125 |
-| solidart | update_1to2 | 26341 |
-| solidart | update_1to4 | 13066 |
-| solidart | update_1to1000 | 224 |
-| solidart | cellx1000 (first: pass, last: pass) | 165013 |
-| solidart | cellx2500 (first: pass, last: pass) | 534861 |
-| solidart | cellx5000 (first: pass, last: pass) | 1169693 |
-| solidart | 10x5 - 2 sources - read 20.0% (simple, sum: pass, count: fail) | 2625410 |
-| solidart | 10x10 - 6 sources - dynamic - read 20.0% (dynamic, sum: pass, count: fail) | 2417040 |
-| solidart | 1000x12 - 4 sources - dynamic (large, sum: pass, count: fail) | 4056682 |
-| solidart | 1000x5 - 25 sources (wide dense, sum: pass, count: fail) | 4922021 |
-| solidart | 5x500 - 3 sources (deep, sum: pass, count: fail) | 1977567 |
-| solidart | 100x15 - 6 sources - dynamic (very dynamic, sum: pass, count: fail) | 2779317 |
+| solidart(2.0-dev) | avoidablePropagation (success) | 852467 |
+| solidart(2.0-dev) | broadPropagation (success) | 7645522 |
+| solidart(2.0-dev) | deepPropagation (success) | 936221 |
+| solidart(2.0-dev) | diamond (success) | 2433290 |
+| solidart(2.0-dev) | mux (success) | 1177856 |
+| solidart(2.0-dev) | repeatedObservers (success) | 267703 |
+| solidart(2.0-dev) | triangle (success) | 618631 |
+| solidart(2.0-dev) | unstable (success) | 775485 |
+| solidart(2.0-dev) | molBench | 567434 |
+| solidart(2.0-dev) | create_signals | 51617 |
+| solidart(2.0-dev) | comp_0to1 | 37778 |
+| solidart(2.0-dev) | comp_1to1 | 34329 |
+| solidart(2.0-dev) | comp_2to1 | 16899 |
+| solidart(2.0-dev) | comp_4to1 | 29511 |
+| solidart(2.0-dev) | comp_1000to1 | 26 |
+| solidart(2.0-dev) | comp_1to2 | 32620 |
+| solidart(2.0-dev) | comp_1to4 | 36232 |
+| solidart(2.0-dev) | comp_1to8 | 29351 |
+| solidart(2.0-dev) | comp_1to1000 | 16322 |
+| solidart(2.0-dev) | update_1to1 | 14440 |
+| solidart(2.0-dev) | update_2to1 | 7680 |
+| solidart(2.0-dev) | update_4to1 | 3622 |
+| solidart(2.0-dev) | update_1000to1 | 36 |
+| solidart(2.0-dev) | update_1to2 | 7218 |
+| solidart(2.0-dev) | update_1to4 | 3649 |
+| solidart(2.0-dev) | update_1to1000 | 168 |
+| solidart(2.0-dev) | cellx1000 (first: pass, last: pass) | 38128 |
+| solidart(2.0-dev) | cellx2500 (first: pass, last: pass) | 205603 |
+| solidart(2.0-dev) | cellx5000 (first: pass, last: pass) | 495444 |
+| solidart(2.0-dev) | 10x5 - 2 sources - read 20.0% (simple, sum: pass, count: pass) | 2592205 |
+| solidart(2.0-dev) | 10x10 - 6 sources - dynamic - read 20.0% (dynamic, sum: pass, count: pass) | 1830677 |
+| solidart(2.0-dev) | 1000x12 - 4 sources - dynamic (large, sum: pass, count: pass) | 5316668 |
+| solidart(2.0-dev) | 1000x5 - 25 sources (wide dense, sum: pass, count: pass) | 11698168 |
+| solidart(2.0-dev) | 5x500 - 3 sources (deep, sum: pass, count: pass) | 1422217 |
+| solidart(2.0-dev) | 100x15 - 6 sources - dynamic (very dynamic, sum: pass, count: pass) | 1965726 |
