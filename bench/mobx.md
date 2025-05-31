@@ -1,37 +1,37 @@
 | Framework | Test Case | Time (μs) |
 | --- | --- | --- |
-| mobx | avoidablePropagation (success) | 2351087 |
-| mobx | broadPropagation (success) | 4527071 |
-| mobx | deepPropagation (success) | 1568837 |
-| mobx | diamond (success) | 2485641 |
-| mobx | mux (success) | 1866665 |
-| mobx | repeatedObservers (success) | 235766 |
-| mobx | triangle (success) | 771464 |
-| mobx | unstable (success) | 354648 |
-| mobx | molBench | 573164 |
-| mobx | create_signals | 69194 |
-| mobx | comp_0to1 | 20227 |
-| mobx | comp_1to1 | 32034 |
-| mobx | comp_2to1 | 9397 |
-| mobx | comp_4to1 | 27846 |
-| mobx | comp_1000to1 | 24 |
-| mobx | comp_1to2 | 33883 |
-| mobx | comp_1to4 | 35511 |
-| mobx | comp_1to8 | 26726 |
-| mobx | comp_1to1000 | 16349 |
-| mobx | update_1to1 | 26579 |
-| mobx | update_2to1 | 13152 |
-| mobx | update_4to1 | 6806 |
-| mobx | update_1000to1 | 56 |
-| mobx | update_1to2 | 13222 |
-| mobx | update_1to4 | 6174 |
-| mobx | update_1to1000 | 173 |
-| mobx | cellx1000 (first: pass, last: pass) | 83459 |
-| mobx | cellx2500 (first: pass, last: pass) | 266459 |
-| mobx | cellx5000 (first: pass, last: pass) | 601516 |
-| mobx | 10x5 - 2 sources - read 20.0% (simple, sum: pass, count: pass) | 2033469 |
-| mobx | 10x10 - 6 sources - dynamic - read 20.0% (dynamic, sum: pass, count: pass) | 1538592 |
-| mobx | 1000x12 - 4 sources - dynamic (large, sum: pass, count: pass) | 1963634 |
-| mobx | 1000x5 - 25 sources (wide dense, sum: pass, count: pass) | 3610783 |
-| mobx | 5x500 - 3 sources (deep, sum: pass, count: pass) | 1178504 |
-| mobx | 100x15 - 6 sources - dynamic (very dynamic, sum: pass, count: pass) | 1742612 |
+| mobx | avoidablePropagation (success) | 2378104 |
+| mobx | broadPropagation (success) | 4437617 |
+| mobx | deepPropagation (success) | 1584880 |
+| mobx | diamond (success) | 2508636 |
+| mobx | mux (success) | 1850449 |
+| mobx | repeatedObservers (success) | 242564 |
+| mobx | triangle (success) | 781050 |
+| mobx | unstable (success) | 363504 |
+| mobx | molBench | 573468 |
+| mobx | create_signals | 90928 |
+| mobx | comp_0to1 | 16663 |
+| mobx | comp_1to1 | 55449 |
+| mobx | comp_2to1 | 25245 |
+| mobx | comp_4to1 | 21134 |
+| mobx | comp_1000to1 | 16 |
+| mobx | comp_1to2 | 36457 |
+| mobx | comp_1to4 | 23635 |
+| mobx | comp_1to8 | 24282 |
+| mobx | comp_1to1000 | 16374 |
+| mobx | update_1to1 | 22351 |
+| mobx | update_2to1 | 10927 |
+| mobx | update_4to1 | 5638 |
+| mobx | update_1000to1 | 66 |
+| mobx | update_1to2 | 10859 |
+| mobx | update_1to4 | 5465 |
+| mobx | update_1to1000 | 168 |
+| mobx | cellx1000 (first: pass, last: pass) | 85956 |
+| mobx | cellx2500 (first: pass, last: pass) | 314948 |
+| mobx | cellx5000 (first: pass, last: pass) | 671063 |
+| mobx | 10x5 - 2 sources - read 20.0% (simple, sum: pass, count: pass) | 2036002 |
+| mobx | 10x10 - 6 sources - dynamic - read 20.0% (dynamic, sum: pass, count: pass) | 1598346 |
+| mobx | 1000x12 - 4 sources - dynamic (large, sum: pass, count: pass) | 2152930 |
+| mobx | 1000x5 - 25 sources (wide dense, sum: pass, count: pass) | 3645246 |
+| mobx | 5x500 - 3 sources (deep, sum: pass, count: pass) | 1207638 |
+| mobx | 100x15 - 6 sources - dynamic (very dynamic, sum: pass, count: pass) | 1745826 |
