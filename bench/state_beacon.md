@@ -1,37 +1,37 @@
 | Framework | Test Case | Time (μs) |
 | --- | --- | --- |
-| state_beacon | avoidablePropagation (fail) | 154456 |
-| state_beacon | broadPropagation (fail) | 6287 |
-| state_beacon | deepPropagation (fail) | 139543 |
-| state_beacon | diamond (fail) | 202873 |
-| state_beacon | mux (fail) | 205061 |
-| state_beacon | repeatedObservers (fail) | 53023 |
-| state_beacon | triangle (fail) | 87912 |
-| state_beacon | unstable (fail) | 336150 |
-| state_beacon | molBench | 920 |
-| state_beacon | create_signals | 68210 |
-| state_beacon | comp_0to1 | 57450 |
-| state_beacon | comp_1to1 | 55188 |
-| state_beacon | comp_2to1 | 36944 |
-| state_beacon | comp_4to1 | 16387 |
-| state_beacon | comp_1000to1 | 61 |
-| state_beacon | comp_1to2 | 44845 |
-| state_beacon | comp_1to4 | 44734 |
-| state_beacon | comp_1to8 | 42717 |
-| state_beacon | comp_1to1000 | 38368 |
-| state_beacon | update_1to1 | 5666 |
-| state_beacon | update_2to1 | 3099 |
-| state_beacon | update_4to1 | 1438 |
-| state_beacon | update_1000to1 | 14 |
-| state_beacon | update_1to2 | 2837 |
-| state_beacon | update_1to4 | 1447 |
-| state_beacon | update_1to1000 | 377 |
-| state_beacon | cellx1000 (first: pass, last: pass) | 5202 |
-| state_beacon | cellx2500 (first: pass, last: pass) | 23173 |
-| state_beacon | cellx5000 (first: pass, last: pass) | 64028 |
-| state_beacon | 10x5 - 2 sources - read 20.0% (simple, sum: pass, count: pass) | 244409 |
-| state_beacon | 10x10 - 6 sources - dynamic - read 20.0% (dynamic, sum: pass, count: pass) | 198672 |
-| state_beacon | 1000x12 - 4 sources - dynamic (large, sum: pass, count: pass) | 347227 |
-| state_beacon | 1000x5 - 25 sources (wide dense, sum: pass, count: pass) | 486819 |
-| state_beacon | 5x500 - 3 sources (deep, sum: pass, count: pass) | 205195 |
-| state_beacon | 100x15 - 6 sources - dynamic (very dynamic, sum: pass, count: pass) | 261359 |
+| state_beacon | avoidablePropagation (fail) | 160588 |
+| state_beacon | broadPropagation (fail) | 7156 |
+| state_beacon | deepPropagation (fail) | 137926 |
+| state_beacon | diamond (fail) | 196840 |
+| state_beacon | mux (fail) | 197213 |
+| state_beacon | repeatedObservers (fail) | 52774 |
+| state_beacon | triangle (fail) | 78605 |
+| state_beacon | unstable (fail) | 336213 |
+| state_beacon | molBench | 937 |
+| state_beacon | create_signals | 67082 |
+| state_beacon | comp_0to1 | 53180 |
+| state_beacon | comp_1to1 | 55092 |
+| state_beacon | comp_2to1 | 36108 |
+| state_beacon | comp_4to1 | 16096 |
+| state_beacon | comp_1000to1 | 45 |
+| state_beacon | comp_1to2 | 46467 |
+| state_beacon | comp_1to4 | 43791 |
+| state_beacon | comp_1to8 | 42562 |
+| state_beacon | comp_1to1000 | 38761 |
+| state_beacon | update_1to1 | 5677 |
+| state_beacon | update_2to1 | 3111 |
+| state_beacon | update_4to1 | 1451 |
+| state_beacon | update_1000to1 | 15 |
+| state_beacon | update_1to2 | 2871 |
+| state_beacon | update_1to4 | 1457 |
+| state_beacon | update_1to1000 | 375 |
+| state_beacon | cellx1000 (first: pass, last: pass) | 6544 |
+| state_beacon | cellx2500 (first: pass, last: pass) | 24847 |
+| state_beacon | cellx5000 (first: pass, last: pass) | 58437 |
+| state_beacon | 10x5 - 2 sources - read 20.0% (simple, sum: pass, count: pass) | 253597 |
+| state_beacon | 10x10 - 6 sources - dynamic - read 20.0% (dynamic, sum: pass, count: pass) | 201772 |
+| state_beacon | 1000x12 - 4 sources - dynamic (large, sum: pass, count: pass) | 330743 |
+| state_beacon | 1000x5 - 25 sources (wide dense, sum: pass, count: pass) | 500557 |
+| state_beacon | 5x500 - 3 sources (deep, sum: pass, count: pass) | 203678 |
+| state_beacon | 100x15 - 6 sources - dynamic (very dynamic, sum: pass, count: pass) | 257562 |
