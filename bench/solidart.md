@@ -1,37 +1,37 @@
 | Framework | Test Case | Time (μs) |
 | --- | --- | --- |
-| solidart(2.0-dev) | avoidablePropagation (success) | 278107 |
-| solidart(2.0-dev) | broadPropagation (success) | 514865 |
-| solidart(2.0-dev) | deepPropagation (success) | 167040 |
-| solidart(2.0-dev) | diamond (success) | 350981 |
-| solidart(2.0-dev) | mux (success) | 440864 |
-| solidart(2.0-dev) | repeatedObservers (success) | 81111 |
-| solidart(2.0-dev) | triangle (success) | 119358 |
-| solidart(2.0-dev) | unstable (success) | 102413 |
-| solidart(2.0-dev) | molBench | 493582 |
-| solidart(2.0-dev) | create_signals | 99654 |
-| solidart(2.0-dev) | comp_0to1 | 37622 |
-| solidart(2.0-dev) | comp_1to1 | 44208 |
-| solidart(2.0-dev) | comp_2to1 | 38798 |
-| solidart(2.0-dev) | comp_4to1 | 12244 |
+| solidart(2.0-dev) | avoidablePropagation (success) | 274925 |
+| solidart(2.0-dev) | broadPropagation (success) | 501701 |
+| solidart(2.0-dev) | deepPropagation (success) | 169338 |
+| solidart(2.0-dev) | diamond (success) | 350187 |
+| solidart(2.0-dev) | mux (success) | 438547 |
+| solidart(2.0-dev) | repeatedObservers (success) | 81139 |
+| solidart(2.0-dev) | triangle (success) | 117883 |
+| solidart(2.0-dev) | unstable (success) | 98170 |
+| solidart(2.0-dev) | molBench | 493176 |
+| solidart(2.0-dev) | create_signals | 53583 |
+| solidart(2.0-dev) | comp_0to1 | 27122 |
+| solidart(2.0-dev) | comp_1to1 | 27825 |
+| solidart(2.0-dev) | comp_2to1 | 35587 |
+| solidart(2.0-dev) | comp_4to1 | 5157 |
 | solidart(2.0-dev) | comp_1000to1 | 17 |
-| solidart(2.0-dev) | comp_1to2 | 30596 |
-| solidart(2.0-dev) | comp_1to4 | 23343 |
-| solidart(2.0-dev) | comp_1to8 | 25297 |
-| solidart(2.0-dev) | comp_1to1000 | 17291 |
-| solidart(2.0-dev) | update_1to1 | 15867 |
-| solidart(2.0-dev) | update_2to1 | 7789 |
-| solidart(2.0-dev) | update_4to1 | 4003 |
+| solidart(2.0-dev) | comp_1to2 | 42230 |
+| solidart(2.0-dev) | comp_1to4 | 22470 |
+| solidart(2.0-dev) | comp_1to8 | 23977 |
+| solidart(2.0-dev) | comp_1to1000 | 17284 |
+| solidart(2.0-dev) | update_1to1 | 16069 |
+| solidart(2.0-dev) | update_2to1 | 7803 |
+| solidart(2.0-dev) | update_4to1 | 4017 |
 | solidart(2.0-dev) | update_1000to1 | 40 |
-| solidart(2.0-dev) | update_1to2 | 8014 |
-| solidart(2.0-dev) | update_1to4 | 3997 |
-| solidart(2.0-dev) | update_1to1000 | 171 |
-| solidart(2.0-dev) | cellx1000 (first: pass, last: pass) | 13378 |
-| solidart(2.0-dev) | cellx2500 (first: pass, last: pass) | 35052 |
-| solidart(2.0-dev) | cellx5000 (first: pass, last: pass) | 98401 |
-| solidart(2.0-dev) | 10x5 - 2 sources - read 20.0% (simple, sum: pass, count: pass) | 351009 |
-| solidart(2.0-dev) | 10x10 - 6 sources - dynamic - read 20.0% (dynamic, sum: pass, count: pass) | 244598 |
-| solidart(2.0-dev) | 1000x12 - 4 sources - dynamic (large, sum: pass, count: pass) | 464674 |
-| solidart(2.0-dev) | 1000x5 - 25 sources (wide dense, sum: pass, count: pass) | 586086 |
-| solidart(2.0-dev) | 5x500 - 3 sources (deep, sum: pass, count: pass) | 247673 |
-| solidart(2.0-dev) | 100x15 - 6 sources - dynamic (very dynamic, sum: pass, count: pass) | 379992 |
+| solidart(2.0-dev) | update_1to2 | 8020 |
+| solidart(2.0-dev) | update_1to4 | 3988 |
+| solidart(2.0-dev) | update_1to1000 | 170 |
+| solidart(2.0-dev) | cellx1000 (first: pass, last: pass) | 11967 |
+| solidart(2.0-dev) | cellx2500 (first: pass, last: pass) | 33183 |
+| solidart(2.0-dev) | cellx5000 (first: pass, last: pass) | 70731 |
+| solidart(2.0-dev) | 10x5 - 2 sources - read 20.0% (simple, sum: pass, count: pass) | 350405 |
+| solidart(2.0-dev) | 10x10 - 6 sources - dynamic - read 20.0% (dynamic, sum: pass, count: pass) | 241883 |
+| solidart(2.0-dev) | 1000x12 - 4 sources - dynamic (large, sum: pass, count: pass) | 461806 |
+| solidart(2.0-dev) | 1000x5 - 25 sources (wide dense, sum: pass, count: pass) | 593846 |
+| solidart(2.0-dev) | 5x500 - 3 sources (deep, sum: pass, count: pass) | 252190 |
+| solidart(2.0-dev) | 100x15 - 6 sources - dynamic (very dynamic, sum: pass, count: pass) | 379965 |
