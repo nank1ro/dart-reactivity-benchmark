@@ -1,37 +1,37 @@
 | Framework | Test Case | Time (μs) |
 | --- | --- | --- |
-| alien_signals | avoidablePropagation (success) | 183081 |
-| alien_signals | broadPropagation (success) | 345185 |
-| alien_signals | deepPropagation (success) | 122817 |
-| alien_signals | diamond (success) | 229926 |
-| alien_signals | mux (success) | 369891 |
-| alien_signals | repeatedObservers (success) | 45780 |
-| alien_signals | triangle (success) | 84137 |
-| alien_signals | unstable (success) | 67249 |
-| alien_signals | molBench | 487561 |
-| alien_signals | create_signals | 28054 |
-| alien_signals | comp_0to1 | 7199 |
-| alien_signals | comp_1to1 | 4251 |
-| alien_signals | comp_2to1 | 2332 |
-| alien_signals | comp_4to1 | 10074 |
-| alien_signals | comp_1000to1 | 4 |
-| alien_signals | comp_1to2 | 18587 |
-| alien_signals | comp_1to4 | 4857 |
-| alien_signals | comp_1to8 | 4866 |
-| alien_signals | comp_1to1000 | 4335 |
-| alien_signals | update_1to1 | 10251 |
-| alien_signals | update_2to1 | 2308 |
-| alien_signals | update_4to1 | 2608 |
-| alien_signals | update_1000to1 | 24 |
-| alien_signals | update_1to2 | 5079 |
-| alien_signals | update_1to4 | 2489 |
-| alien_signals | update_1to1000 | 42 |
-| alien_signals | cellx1000 (first: pass, last: pass) | 7332 |
-| alien_signals | cellx2500 (first: pass, last: pass) | 19428 |
-| alien_signals | cellx5000 (first: pass, last: pass) | 45349 |
-| alien_signals | 10x5 - 2 sources - read 20.0% (simple, sum: pass, count: pass) | 234095 |
-| alien_signals | 10x10 - 6 sources - dynamic - read 20.0% (dynamic, sum: pass, count: pass) | 178778 |
-| alien_signals | 1000x12 - 4 sources - dynamic (large, sum: pass, count: pass) | 283662 |
-| alien_signals | 1000x5 - 25 sources (wide dense, sum: pass, count: pass) | 415509 |
-| alien_signals | 5x500 - 3 sources (deep, sum: pass, count: pass) | 192768 |
-| alien_signals | 100x15 - 6 sources - dynamic (very dynamic, sum: pass, count: pass) | 263185 |
+| alien_signals | avoidablePropagation (success) | 182488 |
+| alien_signals | broadPropagation (success) | 343813 |
+| alien_signals | deepPropagation (success) | 120929 |
+| alien_signals | diamond (success) | 231188 |
+| alien_signals | mux (success) | 373606 |
+| alien_signals | repeatedObservers (success) | 45228 |
+| alien_signals | triangle (success) | 87573 |
+| alien_signals | unstable (success) | 67932 |
+| alien_signals | molBench | 485203 |
+| alien_signals | create_signals | 22063 |
+| alien_signals | comp_0to1 | 9359 |
+| alien_signals | comp_1to1 | 4351 |
+| alien_signals | comp_2to1 | 2340 |
+| alien_signals | comp_4to1 | 7593 |
+| alien_signals | comp_1000to1 | 5 |
+| alien_signals | comp_1to2 | 9835 |
+| alien_signals | comp_1to4 | 15702 |
+| alien_signals | comp_1to8 | 4768 |
+| alien_signals | comp_1to1000 | 3438 |
+| alien_signals | update_1to1 | 10378 |
+| alien_signals | update_2to1 | 2298 |
+| alien_signals | update_4to1 | 2589 |
+| alien_signals | update_1000to1 | 26 |
+| alien_signals | update_1to2 | 5173 |
+| alien_signals | update_1to4 | 2564 |
+| alien_signals | update_1to1000 | 47 |
+| alien_signals | cellx1000 (first: pass, last: pass) | 8236 |
+| alien_signals | cellx2500 (first: pass, last: pass) | 19729 |
+| alien_signals | cellx5000 (first: pass, last: pass) | 41611 |
+| alien_signals | 10x5 - 2 sources - read 20.0% (simple, sum: pass, count: pass) | 230800 |
+| alien_signals | 10x10 - 6 sources - dynamic - read 20.0% (dynamic, sum: pass, count: pass) | 173143 |
+| alien_signals | 1000x12 - 4 sources - dynamic (large, sum: pass, count: pass) | 276207 |
+| alien_signals | 1000x5 - 25 sources (wide dense, sum: pass, count: pass) | 404544 |
+| alien_signals | 5x500 - 3 sources (deep, sum: pass, count: pass) | 187824 |
+| alien_signals | 100x15 - 6 sources - dynamic (very dynamic, sum: pass, count: pass) | 265175 |
