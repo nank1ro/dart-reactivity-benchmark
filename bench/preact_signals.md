@@ -1,37 +1,37 @@
 | Framework | Test Case | Time (μs) |
 | --- | --- | --- |
-| preact_signals | avoidablePropagation (success) | 201990 |
-| preact_signals | broadPropagation (success) | 462026 |
-| preact_signals | deepPropagation (success) | 177871 |
-| preact_signals | diamond (success) | 283669 |
-| preact_signals | mux (success) | 392276 |
-| preact_signals | repeatedObservers (success) | 40477 |
-| preact_signals | triangle (success) | 99199 |
-| preact_signals | unstable (success) | 74201 |
-| preact_signals | molBench | 488633 |
-| preact_signals | create_signals | 5048 |
-| preact_signals | comp_0to1 | 22377 |
-| preact_signals | comp_1to1 | 13160 |
-| preact_signals | comp_2to1 | 11647 |
-| preact_signals | comp_4to1 | 9175 |
-| preact_signals | comp_1000to1 | 7 |
-| preact_signals | comp_1to2 | 23077 |
-| preact_signals | comp_1to4 | 26947 |
-| preact_signals | comp_1to8 | 6533 |
-| preact_signals | comp_1to1000 | 6803 |
-| preact_signals | update_1to1 | 8356 |
-| preact_signals | update_2to1 | 4438 |
-| preact_signals | update_4to1 | 2093 |
+| preact_signals | avoidablePropagation (success) | 215979 |
+| preact_signals | broadPropagation (success) | 458755 |
+| preact_signals | deepPropagation (success) | 182076 |
+| preact_signals | diamond (success) | 280819 |
+| preact_signals | mux (success) | 394458 |
+| preact_signals | repeatedObservers (success) | 40182 |
+| preact_signals | triangle (success) | 98481 |
+| preact_signals | unstable (success) | 74437 |
+| preact_signals | molBench | 477714 |
+| preact_signals | create_signals | 5434 |
+| preact_signals | comp_0to1 | 18945 |
+| preact_signals | comp_1to1 | 10996 |
+| preact_signals | comp_2to1 | 11776 |
+| preact_signals | comp_4to1 | 9891 |
+| preact_signals | comp_1000to1 | 4 |
+| preact_signals | comp_1to2 | 16540 |
+| preact_signals | comp_1to4 | 24720 |
+| preact_signals | comp_1to8 | 7152 |
+| preact_signals | comp_1to1000 | 5827 |
+| preact_signals | update_1to1 | 8310 |
+| preact_signals | update_2to1 | 4371 |
+| preact_signals | update_4to1 | 2095 |
 | preact_signals | update_1000to1 | 20 |
-| preact_signals | update_1to2 | 4072 |
-| preact_signals | update_1to4 | 2094 |
-| preact_signals | update_1to1000 | 841 |
-| preact_signals | cellx1000 (first: pass, last: pass) | 9883 |
-| preact_signals | cellx2500 (first: pass, last: pass) | 30490 |
-| preact_signals | cellx5000 (first: pass, last: pass) | 85682 |
-| preact_signals | 10x5 - 2 sources - read 20.0% (simple, sum: pass, count: pass) | 452279 |
-| preact_signals | 10x10 - 6 sources - dynamic - read 20.0% (dynamic, sum: pass, count: pass) | 288699 |
-| preact_signals | 1000x12 - 4 sources - dynamic (large, sum: pass, count: pass) | 3712476 |
-| preact_signals | 1000x5 - 25 sources (wide dense, sum: pass, count: pass) | 2712459 |
-| preact_signals | 5x500 - 3 sources (deep, sum: pass, count: pass) | 238734 |
-| preact_signals | 100x15 - 6 sources - dynamic (very dynamic, sum: pass, count: pass) | 460626 |
+| preact_signals | update_1to2 | 4075 |
+| preact_signals | update_1to4 | 2096 |
+| preact_signals | update_1to1000 | 173 |
+| preact_signals | cellx1000 (first: pass, last: pass) | 9682 |
+| preact_signals | cellx2500 (first: pass, last: pass) | 29461 |
+| preact_signals | cellx5000 (first: pass, last: pass) | 76258 |
+| preact_signals | 10x5 - 2 sources - read 20.0% (simple, sum: pass, count: pass) | 445548 |
+| preact_signals | 10x10 - 6 sources - dynamic - read 20.0% (dynamic, sum: pass, count: pass) | 276977 |
+| preact_signals | 1000x12 - 4 sources - dynamic (large, sum: pass, count: pass) | 3741212 |
+| preact_signals | 1000x5 - 25 sources (wide dense, sum: pass, count: pass) | 2770063 |
+| preact_signals | 5x500 - 3 sources (deep, sum: pass, count: pass) | 227853 |
+| preact_signals | 100x15 - 6 sources - dynamic (very dynamic, sum: pass, count: pass) | 463421 |
