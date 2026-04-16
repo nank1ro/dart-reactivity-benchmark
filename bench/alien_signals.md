@@ -1,37 +1,37 @@
 | Framework | Test Case | Time (μs) |
 | --- | --- | --- |
-| alien_signals | avoidablePropagation (success) | 198798 |
-| alien_signals | broadPropagation (success) | 358784 |
-| alien_signals | deepPropagation (success) | 124922 |
-| alien_signals | diamond (success) | 245328 |
-| alien_signals | mux (success) | 367642 |
-| alien_signals | repeatedObservers (success) | 44511 |
-| alien_signals | triangle (success) | 87673 |
-| alien_signals | unstable (success) | 61440 |
-| alien_signals | molBench | 482511 |
-| alien_signals | create_signals | 28445 |
-| alien_signals | comp_0to1 | 7275 |
-| alien_signals | comp_1to1 | 4269 |
-| alien_signals | comp_2to1 | 2333 |
-| alien_signals | comp_4to1 | 8765 |
+| alien_signals | avoidablePropagation (success) | 198578 |
+| alien_signals | broadPropagation (success) | 359238 |
+| alien_signals | deepPropagation (success) | 125839 |
+| alien_signals | diamond (success) | 246083 |
+| alien_signals | mux (success) | 359567 |
+| alien_signals | repeatedObservers (success) | 45448 |
+| alien_signals | triangle (success) | 105520 |
+| alien_signals | unstable (success) | 62505 |
+| alien_signals | molBench | 480971 |
+| alien_signals | create_signals | 29690 |
+| alien_signals | comp_0to1 | 7970 |
+| alien_signals | comp_1to1 | 4204 |
+| alien_signals | comp_2to1 | 2300 |
+| alien_signals | comp_4to1 | 8321 |
 | alien_signals | comp_1000to1 | 3 |
-| alien_signals | comp_1to2 | 20823 |
-| alien_signals | comp_1to4 | 11783 |
-| alien_signals | comp_1to8 | 6427 |
-| alien_signals | comp_1to1000 | 3554 |
-| alien_signals | update_1to1 | 5349 |
-| alien_signals | update_2to1 | 2412 |
-| alien_signals | update_4to1 | 1197 |
+| alien_signals | comp_1to2 | 19664 |
+| alien_signals | comp_1to4 | 5436 |
+| alien_signals | comp_1to8 | 4226 |
+| alien_signals | comp_1to1000 | 3490 |
+| alien_signals | update_1to1 | 4626 |
+| alien_signals | update_2to1 | 2331 |
+| alien_signals | update_4to1 | 1231 |
 | alien_signals | update_1000to1 | 11 |
-| alien_signals | update_1to2 | 2356 |
-| alien_signals | update_1to4 | 1171 |
-| alien_signals | update_1to1000 | 29 |
-| alien_signals | cellx1000 (first: pass, last: pass) | 7626 |
-| alien_signals | cellx2500 (first: pass, last: pass) | 21411 |
-| alien_signals | cellx5000 (first: pass, last: pass) | 49907 |
-| alien_signals | 10x5 - 2 sources - read 20.0% (simple, sum: pass, count: pass) | 237087 |
-| alien_signals | 10x10 - 6 sources - dynamic - read 20.0% (dynamic, sum: pass, count: pass) | 183477 |
-| alien_signals | 1000x12 - 4 sources - dynamic (large, sum: pass, count: pass) | 278405 |
-| alien_signals | 1000x5 - 25 sources (wide dense, sum: pass, count: pass) | 410394 |
-| alien_signals | 5x500 - 3 sources (deep, sum: pass, count: pass) | 193395 |
-| alien_signals | 100x15 - 6 sources - dynamic (very dynamic, sum: pass, count: pass) | 266857 |
+| alien_signals | update_1to2 | 2319 |
+| alien_signals | update_1to4 | 1191 |
+| alien_signals | update_1to1000 | 42 |
+| alien_signals | cellx1000 (first: pass, last: pass) | 7565 |
+| alien_signals | cellx2500 (first: pass, last: pass) | 19408 |
+| alien_signals | cellx5000 (first: pass, last: pass) | 42923 |
+| alien_signals | 10x5 - 2 sources - read 20.0% (simple, sum: pass, count: pass) | 233997 |
+| alien_signals | 10x10 - 6 sources - dynamic - read 20.0% (dynamic, sum: pass, count: pass) | 177196 |
+| alien_signals | 1000x12 - 4 sources - dynamic (large, sum: pass, count: pass) | 283107 |
+| alien_signals | 1000x5 - 25 sources (wide dense, sum: pass, count: pass) | 411163 |
+| alien_signals | 5x500 - 3 sources (deep, sum: pass, count: pass) | 188940 |
+| alien_signals | 100x15 - 6 sources - dynamic (very dynamic, sum: pass, count: pass) | 263384 |
