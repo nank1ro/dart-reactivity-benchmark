@@ -7,12 +7,12 @@ Benchmark comparing different standalone Dart reactivity/signals frameworks.
 <!-- ranking start -->
 | Rank | Framework | Score | Success Rate | Tests | Time |
 |------|-----------|-------|--------------|-------|------|
-| 🥇 | alien_signals | 0.71 | 100.0% | 35/35 | 3.71s |
-| 🥈 | solidart(2.0-dev) | 0.27 | 100.0% | 35/35 | 5.25s |
-| 🥉 | signals | 0.27 | 100.0% | 35/35 | 11.15s |
-| 4 | preact_signals | 0.24 | 100.0% | 35/35 | 10.50s |
-| 5 | mobx | 0.05 | 100.0% | 35/35 | 26.70s |
-| 6 | state_beacon | 0.00 | 77.1% | 27/35 | 3.43s |
+| 🥇 | alien_signals | 0.74 | 100.0% | 35/35 | 3.36s |
+| 🥈 | preact_signals | 0.29 | 100.0% | 35/35 | 8.87s |
+| 🥉 | signals | 0.29 | 100.0% | 35/35 | 9.29s |
+| 4 | solidart(2.0-dev) | 0.27 | 100.0% | 35/35 | 4.92s |
+| 5 | mobx | 0.05 | 100.0% | 35/35 | 26.93s |
+| 6 | state_beacon | 0.00 | 77.1% | 27/35 | 3.12s |
 
 <!-- ranking end -->
 
@@ -45,41 +45,41 @@ Benchmark comparing different standalone Dart reactivity/signals frameworks.
 <!-- test-case start -->
 | Test Case | mobx | signals | alien_signals | preact_signals | solidart(2.0-dev) | state_beacon |
 |---|---|---|---|---|---|---|
-| avoidablePropagation | 2.29s | 200.41ms | 196.05ms | 209.92ms | 276.65ms | 149.88ms (fail) |
-| broadPropagation | 4.28s | 467.52ms | 359.67ms | 469.93ms | 496.30ms | 6.91ms (fail) |
-| deepPropagation | 1.54s | 170.69ms | 129.49ms | 183.74ms | 165.14ms | 136.26ms (fail) |
-| diamond | 2.32s | 291.02ms | 245.64ms | 288.54ms | 338.08ms | 200.53ms (fail) |
-| mux | 1.76s | 395.94ms | 362.43ms | 372.80ms | 416.52ms | 182.54ms (fail) |
-| repeatedObservers | 225.21ms | 45.56ms | 45.59ms | 42.84ms | 80.83ms | 58.34ms (fail) |
-| triangle | 761.59ms | 100.66ms | 87.82ms | 101.17ms | 116.66ms | 77.12ms (fail) |
-| unstable | 338.24ms | 75.64ms | 62.02ms | 71.69ms | 95.70ms | 335.53ms (fail) |
-| molBench | 585.78ms | 494.05ms | 480.94ms | 495.68ms | 489.58ms | 997μs |
-| create_signals | 88.50ms | 25.51ms | 27.10ms | 5.38ms | 88.19ms | 58.72ms |
-| comp_0to1 | 25.89ms | 11.35ms | 7.09ms | 17.54ms | 38.38ms | 54.10ms |
-| comp_1to1 | 30.94ms | 17.94ms | 4.51ms | 13.87ms | 39.94ms | 54.38ms |
-| comp_2to1 | 34.01ms | 15.21ms | 2.48ms | 15.87ms | 45.95ms | 36.16ms |
-| comp_4to1 | 15.24ms | 2.67ms | 10.46ms | 15.12ms | 13.17ms | 16.54ms |
-| comp_1000to1 | 15μs | 5μs | 3μs | 4μs | 16μs | 43μs |
-| comp_1to2 | 37.89ms | 12.84ms | 15.27ms | 18.71ms | 32.64ms | 45.80ms |
-| comp_1to4 | 22.95ms | 11.60ms | 9.01ms | 33.26ms | 16.03ms | 45.23ms |
-| comp_1to8 | 22.61ms | 6.10ms | 3.90ms | 6.66ms | 21.22ms | 44.41ms |
-| comp_1to1000 | 15.43ms | 4.09ms | 5.68ms | 6.34ms | 17.12ms | 39.68ms |
-| update_1to1 | 21.24ms | 8.94ms | 8.74ms | 9.23ms | 15.72ms | 8.91ms |
-| update_2to1 | 10.41ms | 4.46ms | 2.60ms | 4.58ms | 7.90ms | 2.91ms |
-| update_4to1 | 5.37ms | 2.26ms | 1.23ms | 2.31ms | 3.90ms | 2.46ms |
-| update_1000to1 | 52μs | 22μs | 11μs | 23μs | 39μs | 14μs |
-| update_1to2 | 10.41ms | 4.43ms | 2.34ms | 4.57ms | 8.03ms | 3.98ms |
-| update_1to4 | 5.19ms | 2.25ms | 1.21ms | 2.46ms | 3.94ms | 1.44ms |
-| update_1to1000 | 157μs | 41μs | 46μs | 863μs | 151μs | 384μs |
-| cellx1000 | 70.36ms | 9.64ms | 8.98ms | 9.83ms | 11.78ms | 5.17ms |
-| cellx2500 | 238.76ms | 31.13ms | 19.24ms | 28.34ms | 30.88ms | 24.25ms |
-| cellx5000 | 530.04ms | 61.44ms | 40.99ms | 76.90ms | 67.66ms | 61.62ms |
-| 10x5 - 2 sources - read 20.0% (simple) | 1.97s | 506.81ms | 238.37ms | 455.70ms | 360.36ms | 259.03ms |
-| 10x10 - 6 sources - dynamic - read 20.0% (dynamic) | 1.49s | 282.62ms | 184.10ms | 278.56ms | 249.06ms | 199.24ms |
-| 1000x12 - 4 sources - dynamic (large) | 1.85s | 3.82s | 274.60ms | 3.77s | 464.20ms | 336.19ms |
-| 1000x5 - 25 sources (wide dense) | 3.34s | 3.37s | 413.96ms | 2.79s | 598.89ms | 516.51ms |
-| 5x500 - 3 sources (deep) | 1.12s | 224.77ms | 197.17ms | 232.58ms | 252.39ms | 206.53ms |
-| 100x15 - 6 sources - dynamic (very dynamic) | 1.64s | 475.38ms | 263.35ms | 452.69ms | 385.06ms | 256.84ms |
+| avoidablePropagation | 2.46s | 199.28ms | 170.61ms | 184.88ms | 242.93ms | 134.81ms (fail) |
+| broadPropagation | 4.12s | 380.50ms | 303.59ms | 383.90ms | 460.90ms | 5.53ms (fail) |
+| deepPropagation | 1.45s | 180.54ms | 107.88ms | 181.45ms | 151.83ms | 154.79ms (fail) |
+| diamond | 2.34s | 259.56ms | 233.79ms | 252.79ms | 345.48ms | 176.06ms (fail) |
+| mux | 1.79s | 332.03ms | 332.16ms | 327.56ms | 385.14ms | 161.32ms (fail) |
+| repeatedObservers | 247.20ms | 39.84ms | 39.57ms | 33.53ms | 72.83ms | 45.66ms (fail) |
+| triangle | 769.33ms | 92.67ms | 80.08ms | 92.31ms | 111.59ms | 75.42ms (fail) |
+| unstable | 336.03ms | 66.62ms | 59.63ms | 58.66ms | 97.39ms | 322.02ms (fail) |
+| molBench | 458.10ms | 366.52ms | 364.47ms | 389.94ms | 371.20ms | 860μs |
+| create_signals | 75.46ms | 24.77ms | 32.71ms | 6.92ms | 75.83ms | 64.05ms |
+| comp_0to1 | 24.28ms | 12.18ms | 9.32ms | 21.12ms | 34.27ms | 53.88ms |
+| comp_1to1 | 34.20ms | 20.73ms | 5.84ms | 17.90ms | 52.80ms | 55.90ms |
+| comp_2to1 | 12.93ms | 9.02ms | 3.55ms | 12.80ms | 25.30ms | 40.92ms |
+| comp_4to1 | 28.54ms | 2.79ms | 10.59ms | 16.26ms | 16.89ms | 17.16ms |
+| comp_1000to1 | 18μs | 7μs | 5μs | 6μs | 18μs | 51μs |
+| comp_1to2 | 41.97ms | 24.23ms | 18.65ms | 22.93ms | 37.42ms | 47.70ms |
+| comp_1to4 | 33.70ms | 14.40ms | 8.42ms | 25.68ms | 18.32ms | 46.59ms |
+| comp_1to8 | 26.68ms | 8.41ms | 8.16ms | 8.53ms | 22.47ms | 45.95ms |
+| comp_1to1000 | 16.98ms | 7.60ms | 5.26ms | 6.38ms | 15.40ms | 42.83ms |
+| update_1to1 | 20.41ms | 8.31ms | 3.79ms | 8.42ms | 14.50ms | 4.53ms |
+| update_2to1 | 10.08ms | 4.61ms | 1.81ms | 3.55ms | 7.35ms | 2.40ms |
+| update_4to1 | 5.56ms | 2.17ms | 1.21ms | 2.05ms | 3.61ms | 1.08ms |
+| update_1000to1 | 49μs | 20μs | 9μs | 17μs | 38μs | 12μs |
+| update_1to2 | 10.18ms | 4.30ms | 1.93ms | 3.99ms | 7.23ms | 2.23ms |
+| update_1to4 | 4.79ms | 2.00ms | 981μs | 1.98ms | 3.64ms | 1.13ms |
+| update_1to1000 | 170μs | 57μs | 47μs | 59μs | 148μs | 390μs |
+| cellx1000 | 89.74ms | 11.61ms | 9.84ms | 11.48ms | 20.50ms | 9.54ms |
+| cellx2500 | 278.18ms | 37.58ms | 29.29ms | 32.59ms | 57.45ms | 31.15ms |
+| cellx5000 | 599.13ms | 82.50ms | 72.72ms | 89.67ms | 141.09ms | 88.99ms |
+| 10x5 - 2 sources - read 20.0% (simple) | 2.05s | 427.67ms | 231.91ms | 398.81ms | 361.42ms | 222.88ms |
+| 10x10 - 6 sources - dynamic - read 20.0% (dynamic) | 1.48s | 241.03ms | 171.33ms | 236.55ms | 252.22ms | 172.65ms |
+| 1000x12 - 4 sources - dynamic (large) | 1.77s | 3.20s | 251.88ms | 3.09s | 370.89ms | 282.20ms |
+| 1000x5 - 25 sources (wide dense) | 3.45s | 2.62s | 354.44ms | 2.32s | 548.13ms | 380.08ms |
+| 5x500 - 3 sources (deep) | 1.20s | 218.31ms | 211.67ms | 231.42ms | 280.39ms | 206.90ms |
+| 100x15 - 6 sources - dynamic (very dynamic) | 1.69s | 390.42ms | 223.77ms | 394.42ms | 309.11ms | 219.63ms |
 
 <!-- test-case end -->
 
