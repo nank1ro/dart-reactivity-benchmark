@@ -1,37 +1,37 @@
 | Framework | Test Case | Time (μs) |
 | --- | --- | --- |
-| solidart(2.0-dev) | avoidablePropagation (success) | 275214 |
-| solidart(2.0-dev) | broadPropagation (success) | 511001 |
-| solidart(2.0-dev) | deepPropagation (success) | 173376 |
-| solidart(2.0-dev) | diamond (success) | 356238 |
-| solidart(2.0-dev) | mux (success) | 425662 |
-| solidart(2.0-dev) | repeatedObservers (success) | 80065 |
-| solidart(2.0-dev) | triangle (success) | 113757 |
-| solidart(2.0-dev) | unstable (success) | 95568 |
-| solidart(2.0-dev) | molBench | 486174 |
-| solidart(2.0-dev) | create_signals | 59067 |
-| solidart(2.0-dev) | comp_0to1 | 26081 |
-| solidart(2.0-dev) | comp_1to1 | 28689 |
-| solidart(2.0-dev) | comp_2to1 | 33418 |
-| solidart(2.0-dev) | comp_4to1 | 19533 |
-| solidart(2.0-dev) | comp_1000to1 | 14 |
-| solidart(2.0-dev) | comp_1to2 | 34116 |
-| solidart(2.0-dev) | comp_1to4 | 20891 |
-| solidart(2.0-dev) | comp_1to8 | 24007 |
-| solidart(2.0-dev) | comp_1to1000 | 13994 |
-| solidart(2.0-dev) | update_1to1 | 15924 |
-| solidart(2.0-dev) | update_2to1 | 7857 |
-| solidart(2.0-dev) | update_4to1 | 4002 |
-| solidart(2.0-dev) | update_1000to1 | 38 |
-| solidart(2.0-dev) | update_1to2 | 8096 |
-| solidart(2.0-dev) | update_1to4 | 4012 |
-| solidart(2.0-dev) | update_1to1000 | 146 |
-| solidart(2.0-dev) | cellx1000 (first: pass, last: pass) | 15009 |
-| solidart(2.0-dev) | cellx2500 (first: pass, last: pass) | 44907 |
-| solidart(2.0-dev) | cellx5000 (first: pass, last: pass) | 97150 |
-| solidart(2.0-dev) | 10x5 - 2 sources - read 20.0% (simple, sum: pass, count: pass) | 350882 |
-| solidart(2.0-dev) | 10x10 - 6 sources - dynamic - read 20.0% (dynamic, sum: pass, count: pass) | 249213 |
-| solidart(2.0-dev) | 1000x12 - 4 sources - dynamic (large, sum: pass, count: pass) | 465256 |
-| solidart(2.0-dev) | 1000x5 - 25 sources (wide dense, sum: pass, count: pass) | 615437 |
-| solidart(2.0-dev) | 5x500 - 3 sources (deep, sum: pass, count: pass) | 251762 |
-| solidart(2.0-dev) | 100x15 - 6 sources - dynamic (very dynamic, sum: pass, count: pass) | 384720 |
+| solidart(2.0-dev) | avoidablePropagation (success) | 206195 |
+| solidart(2.0-dev) | broadPropagation (success) | 383414 |
+| solidart(2.0-dev) | deepPropagation (success) | 132675 |
+| solidart(2.0-dev) | diamond (success) | 291037 |
+| solidart(2.0-dev) | mux (success) | 327481 |
+| solidart(2.0-dev) | repeatedObservers (success) | 68838 |
+| solidart(2.0-dev) | triangle (success) | 94970 |
+| solidart(2.0-dev) | unstable (success) | 82612 |
+| solidart(2.0-dev) | molBench | 433711 |
+| solidart(2.0-dev) | create_signals | 84960 |
+| solidart(2.0-dev) | comp_0to1 | 32166 |
+| solidart(2.0-dev) | comp_1to1 | 47276 |
+| solidart(2.0-dev) | comp_2to1 | 39805 |
+| solidart(2.0-dev) | comp_4to1 | 14077 |
+| solidart(2.0-dev) | comp_1000to1 | 12 |
+| solidart(2.0-dev) | comp_1to2 | 24221 |
+| solidart(2.0-dev) | comp_1to4 | 21915 |
+| solidart(2.0-dev) | comp_1to8 | 20626 |
+| solidart(2.0-dev) | comp_1to1000 | 11391 |
+| solidart(2.0-dev) | update_1to1 | 13008 |
+| solidart(2.0-dev) | update_2to1 | 6463 |
+| solidart(2.0-dev) | update_4to1 | 3291 |
+| solidart(2.0-dev) | update_1000to1 | 32 |
+| solidart(2.0-dev) | update_1to2 | 6711 |
+| solidart(2.0-dev) | update_1to4 | 3274 |
+| solidart(2.0-dev) | update_1to1000 | 111 |
+| solidart(2.0-dev) | cellx1000 (first: pass, last: pass) | 10940 |
+| solidart(2.0-dev) | cellx2500 (first: pass, last: pass) | 38721 |
+| solidart(2.0-dev) | cellx5000 (first: pass, last: pass) | 135122 |
+| solidart(2.0-dev) | 10x5 - 2 sources - read 20.0% (simple, sum: pass, count: pass) | 291649 |
+| solidart(2.0-dev) | 10x10 - 6 sources - dynamic - read 20.0% (dynamic, sum: pass, count: pass) | 210258 |
+| solidart(2.0-dev) | 1000x12 - 4 sources - dynamic (large, sum: pass, count: pass) | 339884 |
+| solidart(2.0-dev) | 1000x5 - 25 sources (wide dense, sum: pass, count: pass) | 493964 |
+| solidart(2.0-dev) | 5x500 - 3 sources (deep, sum: pass, count: pass) | 206198 |
+| solidart(2.0-dev) | 100x15 - 6 sources - dynamic (very dynamic, sum: pass, count: pass) | 267119 |
